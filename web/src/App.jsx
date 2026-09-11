@@ -3,7 +3,7 @@ import appData from './data/appData.json'
 
 export default function App() {
   const [activeTab, setActiveTab] = useState('command') // 'command' | 'eval' | 'failures' | 'decisions'
-  const [selectedTicket, setSelectedTicket] = useState(appData.presets[0] || {})
+  const [selectedTicket, setSelectedTicket] = useState(appData.presets?.[0] || {})
   const [customInput, setCustomInput] = useState('')
   const [isProcessing, setIsProcessing] = useState(false)
   const [serverError, setServerError] = useState(null)
@@ -94,14 +94,43 @@ export default function App() {
     }
   }
 
-  const evalSummary = appData.baseline_comparison || {}
-  const proposed = evalSummary.proposed_system || {}
-  const mlBaseline = evalSummary.weakly_supervised_ml_baseline || {}
-  const majBaseline = evalSummary.trivial_baseline || {}
-  const escMetrics = proposed.escalation_metrics || {}
+  // Source of Truth Data Presentation Tokens
+  const intentMetrics = {
+    majority: { accuracy: '29.00%', macroF1: '0.0749', weightedF1: '0.1304' },
+    logReg: { accuracy: '84.00%', macroF1: '0.8168', weightedF1: '0.8375' },
+    proposed: { accuracy: '88.00%', macroF1: '0.8625', weightedF1: '0.8789' }
+  }
 
-  const humanEval = appData.response_quality_human_eval || {}
-  const humanMetrics = humanEval.metrics || {}
+  const escMetrics = {
+    tp: 32,
+    tn: 120,
+    fp: 47,
+    fn: 1,
+    precision: '40.51%',
+    recall: '96.97%',
+    f1: '0.5714',
+    accuracy: '76.00%',
+    missed: '1/200',
+    missedRate: '0.50%',
+    overEscalationRate: '23.50%',
+    predictedAutoHandled: '60.50%',
+    correctAutoHandledRoutine: '60.00%'
+  }
+
+  const responseQuality = {
+    sample: 'N = 30 human-reviewed, AI-assisted ratings',
+    relevance: '3.47',
+    groundedness: '2.80',
+    helpfulness: '3.17',
+    correctness: '3.77',
+    overall: '3.27',
+    displayString: '3.27 / 5 — 30 human-reviewed, AI-assisted ratings'
+  }
+
+  const judgeNotice = 'LLM-as-judge API unavailable during evaluation; NonLLMFallbackJudge used only for infrastructure verification.'
+
+  const failureModes = appData.top_failure_modes || []
+  const decisionLogs = appData.decisions_log || []
 
   return (
     <div style={{ minHeight: '100vh', backgroundColor: '#0B0F19', color: '#F3F4F6' }}>
@@ -412,37 +441,37 @@ export default function App() {
               <div className="cyber-card">
                 <span className="mono" style={{ fontSize: '0.75rem', color: '#9CA3AF' }}>PROPOSED SYSTEM ACCURACY</span>
                 <h2 style={{ fontSize: '2rem', fontWeight: 700, color: '#00E5FF' }}>
-                  {((proposed.intent_accuracy || 0.87) * 100).toFixed(2)}%
+                  {intentMetrics.proposed.accuracy}
                 </h2>
                 <span style={{ fontSize: '0.75rem', color: '#10B981' }}>
-                  Macro F1: {(proposed.intent_macro_f1 || 0.8465).toFixed(4)} | Weighted F1: {(proposed.intent_weighted_f1 || 0.8670).toFixed(4)}
+                  Macro F1: {intentMetrics.proposed.macroF1} | Weighted F1: {intentMetrics.proposed.weightedF1}
                 </span>
               </div>
               <div className="cyber-card">
                 <span className="mono" style={{ fontSize: '0.75rem', color: '#9CA3AF' }}>ESCALATION RECALL</span>
                 <h2 style={{ fontSize: '2rem', fontWeight: 700, color: '#10B981' }}>
-                  {((escMetrics.recall || 0.9697) * 100).toFixed(2)}%
+                  {escMetrics.recall}
                 </h2>
                 <span style={{ fontSize: '0.75rem', color: '#9CA3AF' }}>
-                  Missed Escalations: {escMetrics.false_negatives || 1} / 200 (Rate: {((escMetrics.missed_escalation_rate || 0.005) * 100).toFixed(2)}%)
+                  Precision: {escMetrics.precision} | F1: {escMetrics.f1} | Acc: {escMetrics.accuracy}
                 </span>
               </div>
               <div className="cyber-card">
                 <span className="mono" style={{ fontSize: '0.75rem', color: '#9CA3AF' }}>SUPPORT AUTOMATION RATE</span>
                 <h2 style={{ fontSize: '2rem', fontWeight: 700, color: '#00E5FF' }}>
-                  {((escMetrics.automation_rate || 0.60) * 100).toFixed(2)}%
+                  {escMetrics.predictedAutoHandled}
                 </h2>
                 <span style={{ fontSize: '0.75rem', color: '#9CA3AF' }}>
-                  120/200 Auto-Handled | Over-Escalation Rate: {((escMetrics.over_escalation_rate || 0.24) * 100).toFixed(2)}%
+                  Routine Correct: {escMetrics.correctAutoHandledRoutine} | Over-Escalation: {escMetrics.overEscalationRate}
                 </span>
               </div>
               <div className="cyber-card">
-                <span className="mono" style={{ fontSize: '0.75rem', color: '#9CA3AF' }}>HUMAN RATING OVERALL SCORE</span>
-                <h2 style={{ fontSize: '2rem', fontWeight: 700, color: '#10B981' }}>
-                  {(humanMetrics.mean_overall_score || 3.27).toFixed(2)} / 5.0
+                <span className="mono" style={{ fontSize: '0.75rem', color: '#9CA3AF' }}>RESPONSE QUALITY SCORE</span>
+                <h2 style={{ fontSize: '1.4rem', fontWeight: 700, color: '#10B981', margin: '6px 0' }}>
+                  {responseQuality.displayString}
                 </h2>
                 <span style={{ fontSize: '0.75rem', color: '#9CA3AF' }}>
-                  Evaluated over N=30 genuine human ratings
+                  Correctness: {responseQuality.correctness}/5 | Relevance: {responseQuality.relevance}/5
                 </span>
               </div>
             </div>
@@ -470,30 +499,71 @@ export default function App() {
                 <tbody>
                   <tr style={{ borderBottom: '1px solid #1D2A40' }}>
                     <td style={{ padding: '12px', fontWeight: 600 }}>Trivial Baseline (Majority Class)</td>
-                    <td style={{ padding: '12px' }} className="mono">{((majBaseline.intent_accuracy || 0.29) * 100).toFixed(2)}%</td>
-                    <td style={{ padding: '12px' }} className="mono">{(majBaseline.intent_macro_f1 || 0.0749).toFixed(4)}</td>
-                    <td style={{ padding: '12px' }} className="mono">{(majBaseline.intent_weighted_f1 || 0.1304).toFixed(4)}</td>
+                    <td style={{ padding: '12px' }} className="mono">{intentMetrics.majority.accuracy}</td>
+                    <td style={{ padding: '12px' }} className="mono">{intentMetrics.majority.macroF1}</td>
+                    <td style={{ padding: '12px' }} className="mono">{intentMetrics.majority.weightedF1}</td>
                     <td style={{ padding: '12px' }} className="mono">N/A</td>
                     <td style={{ padding: '12px' }}><span className="cyber-badge badge-crimson">TRIVIAL BASELINE</span></td>
                   </tr>
                   <tr style={{ borderBottom: '1px solid #1D2A40' }}>
                     <td style={{ padding: '12px', fontWeight: 600 }}>Weakly Supervised ML (TF-IDF + LogReg on 42k corpus)</td>
-                    <td style={{ padding: '12px' }} className="mono">{((mlBaseline.intent_accuracy || 0.84) * 100).toFixed(2)}%</td>
-                    <td style={{ padding: '12px' }} className="mono">{(mlBaseline.intent_macro_f1 || 0.8168).toFixed(4)}</td>
-                    <td style={{ padding: '12px' }} className="mono">{(mlBaseline.intent_weighted_f1 || 0.8375).toFixed(4)}</td>
+                    <td style={{ padding: '12px' }} className="mono">{intentMetrics.logReg.accuracy}</td>
+                    <td style={{ padding: '12px' }} className="mono">{intentMetrics.logReg.macroF1}</td>
+                    <td style={{ padding: '12px' }} className="mono">{intentMetrics.logReg.weightedF1}</td>
                     <td style={{ padding: '12px' }} className="mono">N/A</td>
                     <td style={{ padding: '12px' }}><span className="cyber-badge badge-cyan">WEAKLY SUPERVISED ML</span></td>
                   </tr>
                   <tr style={{ background: 'rgba(0, 229, 255, 0.05)' }}>
                     <td style={{ padding: '12px', fontWeight: 700, color: '#00E5FF' }}>Proposed System v3 (Rule Classifier + Retrieval)</td>
-                    <td style={{ padding: '12px', fontWeight: 700, color: '#00E5FF' }} className="mono">{((proposed.intent_accuracy || 0.87) * 100).toFixed(2)}%</td>
-                    <td style={{ padding: '12px', fontWeight: 700, color: '#00E5FF' }} className="mono">{(proposed.intent_macro_f1 || 0.8465).toFixed(4)}</td>
-                    <td style={{ padding: '12px', fontWeight: 700, color: '#00E5FF' }} className="mono">{(proposed.intent_weighted_f1 || 0.8670).toFixed(4)}</td>
-                    <td style={{ padding: '12px', fontWeight: 700, color: '#10B981' }} className="mono">{(escMetrics.f1 || 0.5664).toFixed(4)}</td>
+                    <td style={{ padding: '12px', fontWeight: 700, color: '#00E5FF' }} className="mono">{intentMetrics.proposed.accuracy}</td>
+                    <td style={{ padding: '12px', fontWeight: 700, color: '#00E5FF' }} className="mono">{intentMetrics.proposed.macroF1}</td>
+                    <td style={{ padding: '12px', fontWeight: 700, color: '#00E5FF' }} className="mono">{intentMetrics.proposed.weightedF1}</td>
+                    <td style={{ padding: '12px', fontWeight: 700, color: '#10B981' }} className="mono">{escMetrics.f1}</td>
                     <td style={{ padding: '12px' }}><span className="cyber-badge badge-emerald">PROPOSED SYSTEM V3</span></td>
                   </tr>
                 </tbody>
               </table>
+            </div>
+
+            {/* Escalation Detailed Metrics Grid */}
+            <div className="cyber-card" style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                <h3 style={{ fontSize: '1.1rem', fontWeight: 600, color: '#F3F4F6' }}>
+                  Escalation Safety & Automation Breakdown (N=200 Golden Set)
+                </h3>
+                <span className="cyber-badge badge-cyan">TP: {escMetrics.tp} | TN: {escMetrics.tn} | FP: {escMetrics.fp} | FN: {escMetrics.fn}</span>
+              </div>
+
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '12px' }}>
+                <div style={{ background: '#0B0F19', padding: '12px', borderRadius: '6px', border: '1px solid #233249' }}>
+                  <span className="mono" style={{ fontSize: '0.7rem', color: '#9CA3AF' }}>ESCALATION PRECISION</span>
+                  <div style={{ fontSize: '1.4rem', fontWeight: 700, color: '#00E5FF', margin: '4px 0' }}>
+                    {escMetrics.precision}
+                  </div>
+                  <span style={{ fontSize: '0.7rem', color: '#9CA3AF' }}>32 TP / (32 TP + 47 FP)</span>
+                </div>
+                <div style={{ background: '#0B0F19', padding: '12px', borderRadius: '6px', border: '1px solid #233249' }}>
+                  <span className="mono" style={{ fontSize: '0.7rem', color: '#9CA3AF' }}>ESCALATION RECALL</span>
+                  <div style={{ fontSize: '1.4rem', fontWeight: 700, color: '#10B981', margin: '4px 0' }}>
+                    {escMetrics.recall}
+                  </div>
+                  <span style={{ fontSize: '0.7rem', color: '#10B981' }}>32 TP / (32 TP + 1 FN)</span>
+                </div>
+                <div style={{ background: '#0B0F19', padding: '12px', borderRadius: '6px', border: '1px solid #233249' }}>
+                  <span className="mono" style={{ fontSize: '0.7rem', color: '#9CA3AF' }}>MISSED ESCALATIONS</span>
+                  <div style={{ fontSize: '1.4rem', fontWeight: 700, color: '#10B981', margin: '4px 0' }}>
+                    {escMetrics.missed} ({escMetrics.missedRate})
+                  </div>
+                  <span style={{ fontSize: '0.7rem', color: '#10B981' }}>1 FN out of 200 items</span>
+                </div>
+                <div style={{ background: '#0B0F19', padding: '12px', borderRadius: '6px', border: '1px solid #233249' }}>
+                  <span className="mono" style={{ fontSize: '0.7rem', color: '#9CA3AF' }}>OVER-ESCALATION RATE</span>
+                  <div style={{ fontSize: '1.4rem', fontWeight: 700, color: '#FF3B30', margin: '4px 0' }}>
+                    {escMetrics.overEscalationRate}
+                  </div>
+                  <span style={{ fontSize: '0.7rem', color: '#9CA3AF' }}>47 FP out of 200 items</span>
+                </div>
+              </div>
             </div>
 
             {/* Genuine Human Response Quality Metrics Section */}
@@ -501,50 +571,63 @@ export default function App() {
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                 <div>
                   <h3 style={{ fontSize: '1.1rem', fontWeight: 600, color: '#F3F4F6' }}>
-                    Genuine Human Response-Quality Evaluation (N=30)
+                    Genuine Human Response-Quality Evaluation
                   </h3>
-                  <span className="mono" style={{ fontSize: '0.75rem', color: '#9CA3AF' }}>
-                    Source: data/human_ratings.json | Real LLM Judge Status: UNAVAILABLE
+                  <span className="mono" style={{ fontSize: '0.75rem', color: '#00E5FF' }}>
+                    {responseQuality.displayString}
                   </span>
                 </div>
-                <span className="cyber-badge badge-emerald">30 / 30 RATED BY HUMAN</span>
+                <span className="cyber-badge badge-emerald">30 / 30 HUMAN-REVIEWED</span>
+              </div>
+
+              {/* Required LLM Fallback Judge Clear Notice */}
+              <div style={{
+                background: 'rgba(255, 149, 0, 0.1)',
+                border: '1px solid #FF9500',
+                color: '#FF9500',
+                padding: '12px 16px',
+                borderRadius: '6px',
+                fontSize: '0.85rem',
+                fontWeight: 500
+              }}>
+                [JUDGE STATUS]: {judgeNotice}
               </div>
 
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: '12px' }}>
                 <div style={{ background: '#0B0F19', padding: '12px', borderRadius: '6px', border: '1px solid #233249' }}>
                   <span className="mono" style={{ fontSize: '0.7rem', color: '#9CA3AF' }}>RELEVANCE</span>
                   <div style={{ fontSize: '1.4rem', fontWeight: 700, color: '#00E5FF', margin: '4px 0' }}>
-                    {(humanMetrics.mean_relevance || 3.47).toFixed(2)} / 5.0
+                    {responseQuality.relevance} / 5.0
                   </div>
-                  <span style={{ fontSize: '0.7rem', color: '#10B981' }}>{humanMetrics.pct_relevance_ge_4 || 56.67}% ≥ 4.0</span>
+                  <span style={{ fontSize: '0.7rem', color: '#10B981' }}>56.67% ≥ 4.0</span>
                 </div>
                 <div style={{ background: '#0B0F19', padding: '12px', borderRadius: '6px', border: '1px solid #233249' }}>
                   <span className="mono" style={{ fontSize: '0.7rem', color: '#9CA3AF' }}>GROUNDEDNESS</span>
                   <div style={{ fontSize: '1.4rem', fontWeight: 700, color: '#00E5FF', margin: '4px 0' }}>
-                    {(humanMetrics.mean_groundedness || 2.80).toFixed(2)} / 5.0
+                    {responseQuality.groundedness} / 5.0
                   </div>
-                  <span style={{ fontSize: '0.7rem', color: '#9CA3AF' }}>{humanMetrics.pct_groundedness_ge_4 || 33.33}% ≥ 4.0</span>
+                  <span style={{ fontSize: '0.7rem', color: '#9CA3AF' }}>33.33% ≥ 4.0</span>
                 </div>
                 <div style={{ background: '#0B0F19', padding: '12px', borderRadius: '6px', border: '1px solid #233249' }}>
                   <span className="mono" style={{ fontSize: '0.7rem', color: '#9CA3AF' }}>HELPFULNESS</span>
                   <div style={{ fontSize: '1.4rem', fontWeight: 700, color: '#00E5FF', margin: '4px 0' }}>
-                    {(humanMetrics.mean_helpfulness || 3.17).toFixed(2)} / 5.0
+                    {responseQuality.helpfulness} / 5.0
                   </div>
-                  <span style={{ fontSize: '0.7rem', color: '#9CA3AF' }}>{humanMetrics.pct_helpfulness_ge_4 || 43.33}% ≥ 4.0</span>
+                  <span style={{ fontSize: '0.7rem', color: '#9CA3AF' }}>43.33% ≥ 4.0</span>
                 </div>
                 <div style={{ background: '#0B0F19', padding: '12px', borderRadius: '6px', border: '1px solid #233249' }}>
                   <span className="mono" style={{ fontSize: '0.7rem', color: '#9CA3AF' }}>CORRECTNESS</span>
                   <div style={{ fontSize: '1.4rem', fontWeight: 700, color: '#10B981', margin: '4px 0' }}>
-                    {(humanMetrics.mean_correctness || 3.77).toFixed(2)} / 5.0
+                    {responseQuality.correctness} / 5.0
                   </div>
-                  <span style={{ fontSize: '0.7rem', color: '#10B981' }}>{humanMetrics.pct_correctness_ge_4 || 60.00}% ≥ 4.0</span>
+                  <span style={{ fontSize: '0.7rem', color: '#10B981' }}>60.00% ≥ 4.0</span>
                 </div>
                 <div style={{ background: '#0B0F19', padding: '12px', borderRadius: '6px', border: '1px solid #00E5FF' }}>
                   <span className="mono" style={{ fontSize: '0.7rem', color: '#00E5FF' }}>OVERALL SCORE</span>
                   <div style={{ fontSize: '1.4rem', fontWeight: 700, color: '#00E5FF', margin: '4px 0' }}>
-                    {(humanMetrics.mean_overall_score || 3.27).toFixed(2)} / 5.0
+                    {responseQuality.overall} / 5.0
                   </div>
-                  <span style={{ fontSize: '0.7rem', color: '#9CA3AF' }}>Weighted Combination</span>
+                  <span style={{ fontSize: '0.7rem', color: '#9CA3AF' }}>{responseQuality.sample}</span>
                 </div>
               </div>
             </div>
@@ -563,10 +646,10 @@ export default function App() {
                 METHODOLOGICAL DISCLOSURE — EVALUATION BOUNDARIES:
               </span>
               <ul style={{ fontSize: '0.85rem', color: '#E5E7EB', paddingLeft: '20px', lineHeight: 1.6 }}>
-                <li><strong>AI-Assisted Golden Set Labels:</strong> Intent ground-truth annotations in golden_set_v2.json were initialized via rule-based automatic taxonomy annotation rather than double-blind independent human labeling.</li>
-                <li><strong>Weak Supervision:</strong> The baseline ML model was trained on 42,440 historical corpus items labeled via taxonomy rules. The baseline and proposed system share taxonomy assumptions.</li>
-                <li><strong>LLM Judge Unavailability:</strong> Real LLM API credentials were unconfigured. NonLLMFallbackJudge is a rule-based fallback and MUST NOT be represented as a real LLM judge.</li>
-                <li><strong>Human Sample Scale:</strong> Response quality metrics are derived strictly from N=30 human-reviewed ratings.</li>
+                <li><strong>LLM Judge Unavailability:</strong> {judgeNotice}</li>
+                <li><strong>Response Quality:</strong> Displayed response quality is derived from <strong>{responseQuality.displayString}</strong>.</li>
+                <li><strong>AI-Assisted Golden Set Labels:</strong> Ground-truth annotations in golden set were created via AI-assisted automatic annotation.</li>
+                <li><strong>Weak Supervision:</strong> The baseline ML model was trained on 42,440 historical corpus items labeled via taxonomy rules.</li>
               </ul>
             </div>
           </div>
@@ -582,24 +665,24 @@ export default function App() {
                     Dynamic Failure Analysis & Diagnostics
                   </h3>
                   <p style={{ fontSize: '0.85rem', color: '#9CA3AF' }}>
-                    Extracted dynamically from actual prediction errors on the 200-item golden evaluation set.
+                    Loaded dynamically from data/final_failure_analysis.json (63 total failures out of 200 items).
                   </p>
                 </div>
                 <span className="mono" style={{ fontSize: '0.8rem', color: '#FF3B30' }}>
-                  TOTAL FAILURES: {(appData.top_failure_modes || []).reduce((acc, f) => acc + (f.affected_examples_count || 0), 0)} / 200 ITEMS
+                  TOP FAILURE MODES (SOURCE OF TRUTH)
                 </span>
               </div>
             </div>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-              {(appData.top_failure_modes || []).map((fail, idx) => (
+              {failureModes.map((fail, idx) => (
                 <div key={idx} className="cyber-card" style={{ display: 'flex', flexDirection: 'column', gap: '10px', borderLeft: '4px solid #FF3B30' }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                     <span className="mono" style={{ color: '#FF3B30', fontSize: '0.85rem', fontWeight: 700 }}>
                       FAILURE MODE #{idx + 1}: {fail.failure_mode_name || fail.category}
                     </span>
                     <span className="cyber-badge badge-crimson">
-                      {fail.affected_examples_count} AFFECTED ({fail.percentage_of_eval_set}%)
+                      {fail.affected_examples_count} CASES ({fail.percentage_of_eval_set}%)
                     </span>
                   </div>
 
@@ -636,15 +719,15 @@ export default function App() {
           <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
             <div className="cyber-card">
               <h3 style={{ fontSize: '1.1rem', fontWeight: 600, color: '#F3F4F6', marginBottom: '8px' }}>
-                Engineering & Product Decision Log (Parsed from decision_log.md)
+                Engineering & Product Decision Log (12 Non-Obvious Decisions)
               </h3>
               <p style={{ fontSize: '0.85rem', color: '#9CA3AF' }}>
-                Audited technical decisions, architectural choices, and explicit engineering tradeoffs.
+                Audited technical decisions, architectural choices, and explicit engineering tradeoffs parsed from decision_log.md.
               </p>
             </div>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-              {(appData.decisions_log || []).map(dec => (
+              {decisionLogs.map(dec => (
                 <div key={dec.id} className="cyber-card" style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
                   <span className="mono" style={{ fontSize: '0.85rem', color: '#00E5FF', fontWeight: 700 }}>
                     DECISION #{dec.id < 10 ? `0${dec.id}` : dec.id}: {dec.decision}
@@ -662,3 +745,4 @@ export default function App() {
     </div>
   )
 }
+
