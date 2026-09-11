@@ -571,7 +571,7 @@ export default function App() {
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                 <div>
                   <h3 style={{ fontSize: '1.1rem', fontWeight: 600, color: '#F3F4F6' }}>
-                    Genuine Human Response-Quality Evaluation
+                    Human-Reviewed Response-Quality Evaluation
                   </h3>
                   <span className="mono" style={{ fontSize: '0.75rem', color: '#00E5FF' }}>
                     {responseQuality.displayString}

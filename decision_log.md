@@ -6,7 +6,7 @@ This document records 12 non-obvious engineering and product decisions made duri
 
 ### Decision 1: Brand Selection — SpotifyCares over AppleSupport / Delta
 * **Decision**: Selected `SpotifyCares` from 108 candidates in the Kaggle dataset.
-* **Why**: Profiling 2.8M tweets revealed SpotifyCares has 43,092 clean $Customer \rightarrow Brand$ conversation pairs with clear digital software support boundaries (playback bugs, offline sync, billing, account security), high intent density, and pure English text.
+* **Why**: Profiling 2.8M tweets revealed SpotifyCares has 43,092 clean Customer -> Brand conversation pairs with clear digital software support boundaries (playback bugs, offline sync, billing, account security), high intent density, and pure English text.
 * **Alternative Considered**: `AppleSupport` (106k pairs) or `Delta` (42k pairs).
 * **Tradeoff**: AppleSupport has 77% generic DM redirects ("Send us a DM with your iOS version"), while Delta requires real-time flight state data. SpotifyCares maximizes public resolution quality.
 
@@ -22,14 +22,14 @@ This document records 12 non-obvious engineering and product decisions made duri
 
 ### Decision 3: Deterministic TF-IDF + Cosine Retrieval over External Dense Embedding API
 * **Decision**: Used TF-IDF vectorization with n-gram range (1,2) over 42,678 historical support pairs.
-* **Why**: Guarantees 100% deterministic, offline reproducibility in $< 15$ seconds without external LLM API costs or token latency.
+* **Why**: Guarantees 100% deterministic, offline reproducibility in < 15 seconds without external LLM API costs or token latency.
 * **Alternative Considered**: OpenAI `text-embedding-3-small` or Pinecone vector DB.
 * **Tradeoff**: Lower semantic generalization on rare synonyms, but zero API dependency and sub-millisecond local search speed.
 
 ---
 
 ### Decision 4: Data Leakage Prevention Protocol
-* **Decision**: Exclude candidate historical cases matching the target evaluation `customer_tweet_id` or exhibiting $> 0.98$ cosine similarity during evaluation.
+* **Decision**: Exclude candidate historical cases matching the target evaluation `customer_tweet_id` or exhibiting > 0.98 cosine similarity during evaluation.
 * **Why**: Prevents evaluating a test query against its own exact historical record, avoiding inflated performance metrics.
 * **Alternative Considered**: standard k-NN lookup without self-filtering.
 * **Tradeoff**: Slightly lowers raw retrieval match scores, but ensures honest evaluation integrity.
@@ -37,8 +37,8 @@ This document records 12 non-obvious engineering and product decisions made duri
 ---
 
 ### Decision 5: Dual Risk-Calibrated Escalation Thresholds
-* **Decision**: Require both intent confidence $\ge 0.70$ AND retrieval similarity $\ge 0.55$ for an `AUTO-HANDLE` decision.
-* **Why**: Prevents auto-handling ambiguous queries or cases lacking grounded evidence, achieving 97.17% escalation recall.
+* **Decision**: Require both intent confidence ≥ 0.70 AND retrieval similarity ≥ 0.55 for an `AUTO-HANDLE` decision.
+* **Why**: Prevents auto-handling ambiguous queries or cases lacking grounded evidence, achieving 96.97% escalation recall.
 * **Alternative Considered**: Single confidence score threshold.
 * **Tradeoff**: Higher human escalation rate on borderline queries, prioritizing user safety over aggressive automation.
 

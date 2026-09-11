@@ -657,7 +657,7 @@
     {
       "id": 1,
       "decision": "Selected `SpotifyCares` from 108 candidates in the Kaggle dataset.",
-      "reason": "Profiling 2.8M tweets revealed SpotifyCares has 43,092 clean $Customer \\rightarrow Brand$ conversation pairs with clear digital software support boundaries (playback bugs, offline sync, billing, account security), high intent density, and pure English text.",
+      "reason": "Profiling 2.8M tweets revealed SpotifyCares has 43,092 clean Customer -> Brand conversation pairs with clear digital software support boundaries (playback bugs, offline sync, billing, account security), high intent density, and pure English text.",
       "alternative": "`AppleSupport` (106k pairs) or `Delta` (42k pairs).",
       "tradeoff": "AppleSupport has 77% generic DM redirects (\"Send us a DM with your iOS version\"), while Delta requires real-time flight state data. SpotifyCares maximizes public resolution quality."
     },
@@ -671,21 +671,21 @@
     {
       "id": 3,
       "decision": "Used TF-IDF vectorization with n-gram range (1,2) over 42,678 historical support pairs.",
-      "reason": "Guarantees 100% deterministic, offline reproducibility in $< 15$ seconds without external LLM API costs or token latency.",
+      "reason": "Guarantees 100% deterministic, offline reproducibility in < 15 seconds without external LLM API costs or token latency.",
       "alternative": "OpenAI `text-embedding-3-small` or Pinecone vector DB.",
       "tradeoff": "Lower semantic generalization on rare synonyms, but zero API dependency and sub-millisecond local search speed."
     },
     {
       "id": 4,
-      "decision": "Exclude candidate historical cases matching the target evaluation `customer_tweet_id` or exhibiting $> 0.98$ cosine similarity during evaluation.",
+      "decision": "Exclude candidate historical cases matching the target evaluation `customer_tweet_id` or exhibiting > 0.98 cosine similarity during evaluation.",
       "reason": "Prevents evaluating a test query against its own exact historical record, avoiding inflated performance metrics.",
       "alternative": "standard k-NN lookup without self-filtering.",
       "tradeoff": "Slightly lowers raw retrieval match scores, but ensures honest evaluation integrity."
     },
     {
       "id": 5,
-      "decision": "Require both intent confidence $\\ge 0.70$ AND retrieval similarity $\\ge 0.55$ for an `AUTO-HANDLE` decision.",
-      "reason": "Prevents auto-handling ambiguous queries or cases lacking grounded evidence, achieving 97.17% escalation recall.",
+      "decision": "Require both intent confidence ≥ 0.70 AND retrieval similarity ≥ 0.55 for an `AUTO-HANDLE` decision.",
+      "reason": "Prevents auto-handling ambiguous queries or cases lacking grounded evidence, achieving 96.97% escalation recall.",
       "alternative": "Single confidence score threshold.",
       "tradeoff": "Higher human escalation rate on borderline queries, prioritizing user safety over aggressive automation."
     },
