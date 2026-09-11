@@ -1,0 +1,242 @@
+[
+  {
+    "id": "GOLDEN-002",
+    "relevance": 2,
+    "groundedness": 2,
+    "helpfulness": 1,
+    "correctness": 4,
+    "notes": "Genuine human rating"
+  },
+  {
+    "id": "GOLDEN-006",
+    "relevance": 2,
+    "groundedness": 1,
+    "helpfulness": 1,
+    "correctness": 2,
+    "notes": "Genuine human rating"
+  },
+  {
+    "id": "GOLDEN-008",
+    "relevance": 4,
+    "groundedness": 3,
+    "helpfulness": 4,
+    "correctness": 5,
+    "notes": "Genuine human rating"
+  },
+  {
+    "id": "GOLDEN-010",
+    "relevance": 4,
+    "groundedness": 3,
+    "helpfulness": 3,
+    "correctness": 4,
+    "notes": "Genuine human rating"
+  },
+  {
+    "id": "GOLDEN-012",
+    "relevance": 4,
+    "groundedness": 3,
+    "helpfulness": 3,
+    "correctness": 5,
+    "notes": "Genuine human rating"
+  },
+  {
+    "id": "GOLDEN-015",
+    "relevance": 3,
+    "groundedness": 2,
+    "helpfulness": 2,
+    "correctness": 3,
+    "notes": "Genuine human rating"
+  },
+  {
+    "id": "GOLDEN-016",
+    "relevance": 2,
+    "groundedness": 2,
+    "helpfulness": 2,
+    "correctness": 3,
+    "notes": "Genuine human rating"
+  },
+  {
+    "id": "GOLDEN-023",
+    "relevance": 2,
+    "groundedness": 2,
+    "helpfulness": 2,
+    "correctness": 3,
+    "notes": "Genuine human rating"
+  },
+  {
+    "id": "GOLDEN-027",
+    "relevance": 5,
+    "groundedness": 5,
+    "helpfulness": 5,
+    "correctness": 5,
+    "notes": "Genuine human rating"
+  },
+  {
+    "id": "GOLDEN-028",
+    "relevance": 3,
+    "groundedness": 2,
+    "helpfulness": 2,
+    "correctness": 3,
+    "notes": "Genuine human rating"
+  },
+  {
+    "id": "GOLDEN-029",
+    "relevance": 4,
+    "groundedness": 3,
+    "helpfulness": 4,
+    "correctness": 4,
+    "notes": "Genuine human rating"
+  },
+  {
+    "id": "GOLDEN-033",
+    "relevance": 2,
+    "groundedness": 1,
+    "helpfulness": 1,
+    "correctness": 2,
+    "notes": "Genuine human rating"
+  },
+  {
+    "id": "GOLDEN-039",
+    "relevance": 4,
+    "groundedness": 3,
+    "helpfulness": 4,
+    "correctness": 5,
+    "notes": "Genuine human rating"
+  },
+  {
+    "id": "GOLDEN-041",
+    "relevance": 4,
+    "groundedness": 4,
+    "helpfulness": 4,
+    "correctness": 5,
+    "notes": "Genuine human rating"
+  },
+  {
+    "id": "GOLDEN-045",
+    "relevance": 2,
+    "groundedness": 1,
+    "helpfulness": 2,
+    "correctness": 2,
+    "notes": "Genuine human rating"
+  },
+  {
+    "id": "GOLDEN-048",
+    "relevance": 4,
+    "groundedness": 3,
+    "helpfulness": 3,
+    "correctness": 4,
+    "notes": "Genuine human rating"
+  },
+  {
+    "id": "GOLDEN-050",
+    "relevance": 5,
+    "groundedness": 4,
+    "helpfulness": 5,
+    "correctness": 5,
+    "notes": "Genuine human rating"
+  },
+  {
+    "id": "GOLDEN-052",
+    "relevance": 5,
+    "groundedness": 4,
+    "helpfulness": 5,
+    "correctness": 5,
+    "notes": "Genuine human rating"
+  },
+  {
+    "id": "GOLDEN-060",
+    "relevance": 2,
+    "groundedness": 1,
+    "helpfulness": 2,
+    "correctness": 2,
+    "notes": "Genuine human rating"
+  },
+  {
+    "id": "GOLDEN-061",
+    "relevance": 2,
+    "groundedness": 1,
+    "helpfulness": 2,
+    "correctness": 2,
+    "notes": "Genuine human rating"
+  },
+  {
+    "id": "GOLDEN-069",
+    "relevance": 4,
+    "groundedness": 4,
+    "helpfulness": 4,
+    "correctness": 5,
+    "notes": "Genuine human rating"
+  },
+  {
+    "id": "GOLDEN-073",
+    "relevance": 4,
+    "groundedness": 3,
+    "helpfulness": 3,
+    "correctness": 4,
+    "notes": "Genuine human rating"
+  },
+  {
+    "id": "GOLDEN-079",
+    "relevance": 5,
+    "groundedness": 4,
+    "helpfulness": 5,
+    "correctness": 5,
+    "notes": "Genuine human rating"
+  },
+  {
+    "id": "GOLDEN-095",
+    "relevance": 2,
+    "groundedness": 1,
+    "helpfulness": 2,
+    "correctness": 2,
+    "notes": "Genuine human rating"
+  },
+  {
+    "id": "GOLDEN-121",
+    "relevance": 5,
+    "groundedness": 5,
+    "helpfulness": 5,
+    "correctness": 5,
+    "notes": "Genuine human rating"
+  },
+  {
+    "id": "GOLDEN-125",
+    "relevance": 2,
+    "groundedness": 1,
+    "helpfulness": 2,
+    "correctness": 2,
+    "notes": "Genuine human rating"
+  },
+  {
+    "id": "GOLDEN-128",
+    "relevance": 5,
+    "groundedness": 5,
+    "helpfulness": 5,
+    "correctness": 5,
+    "notes": "Genuine human rating"
+  },
+  {
+    "id": "GOLDEN-154",
+    "relevance": 5,
+    "groundedness": 5,
+    "helpfulness": 5,
+    "correctness": 5,
+    "notes": "Genuine human rating"
+  },
+  {
+    "id": "GOLDEN-156",
+    "relevance": 2,
+    "groundedness": 1,
+    "helpfulness": 2,
+    "correctness": 2,
+    "notes": "Genuine human rating"
+  },
+  {
+    "id": "GOLDEN-166",
+    "relevance": 5,
+    "groundedness": 5,
+    "helpfulness": 5,
+    "correctness": 5,
+    "notes": "Genuine human rating"
+  }
+]

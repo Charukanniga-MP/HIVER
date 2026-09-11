@@ -1,0 +1,144 @@
+{
+  "metadata": {
+    "total_examples": 200,
+    "total_failures": 63,
+    "failure_rate": 31.5
+  },
+  "top_failure_modes": [
+    {
+      "failure_mode_name": "False Positive Over-Escalation (Conservative Safety Override)",
+      "category": "False Positive Over-Escalation (Conservative Safety Override)",
+      "affected_examples_count": 39,
+      "percentage_of_eval_set": 19.5,
+      "example_id": "GOLDEN-002",
+      "customer_message": "how do I get my favourite podcasts added so I can use you for music and podcasts, I need my and !",
+      "model_prediction": {
+        "predicted_intent": "general_feedback_inquiry",
+        "predicted_escalation": "ESCALATE TO HUMAN",
+        "confidence": 0.45
+      },
+      "expected_intent": "general_feedback_inquiry",
+      "retrieval_evidence": {
+        "evidence_ids": [
+          "SPOT-36918",
+          "SPOT-14583",
+          "SPOT-14382"
+        ],
+        "best_similarity": 0.5397
+      },
+      "generated_reply": "Thank you for reaching out! To make sure this gets resolved accurately, I've escalated your request to a human support agent who will follow up with you directly.",
+      "escalation_decision": "ESCALATE TO HUMAN",
+      "why_it_failed": "System escalated item 'GOLDEN-002' to human even though golden annotation specifies AUTO-HANDLE.",
+      "likely_root_cause": "Risk-calibrated escalation policy requires high confidence (>=0.70) AND high retrieval similarity (>=0.55). Low similarity (0.45-0.54) forced conservative human routing.",
+      "fix_hypothesis": "Lower minimum retrieval threshold to 0.45 for low-risk intents ('general_feedback_inquiry') or expand historical evidence corpus."
+    },
+    {
+      "failure_mode_name": "Compound Cascade Error: Intent and Escalation Misclassified (playback_audio_issue)",
+      "category": "Compound Cascade Error: Intent and Escalation Misclassified (playback_audio_issue)",
+      "affected_examples_count": 6,
+      "percentage_of_eval_set": 3.0,
+      "example_id": "GOLDEN-023",
+      "customer_message": "kapan lagu red velvet yang #PerfectVelvet diliris di spotify indo",
+      "model_prediction": {
+        "predicted_intent": "general_feedback_inquiry",
+        "predicted_escalation": "ESCALATE TO HUMAN",
+        "confidence": 0.45
+      },
+      "expected_intent": "playback_audio_issue",
+      "retrieval_evidence": {
+        "evidence_ids": [
+          "SPOT-37245",
+          "SPOT-37250",
+          "SPOT-37600"
+        ],
+        "best_similarity": 0.5404
+      },
+      "generated_reply": "Thank you for reaching out! To make sure this gets resolved accurately, I've escalated your request to a human support agent who will follow up with you directly.",
+      "escalation_decision": "ESCALATE TO HUMAN",
+      "why_it_failed": "Short or ambiguous customer query 'GOLDEN-023' caused both intent and escalation mismatch.",
+      "likely_root_cause": "Customer query contains insufficient semantic signal (<5 words or multi-language snippet) for single-turn intent classification.",
+      "fix_hypothesis": "Implement a clarification prompt state when intent confidence is below 0.50 instead of single-pass routing."
+    },
+    {
+      "failure_mode_name": "Intent Misclassification: Expected 'account_access_security' vs Predicted 'general_feedback_inquiry'",
+      "category": "Intent Misclassification: Expected 'account_access_security' vs Predicted 'general_feedback_inquiry'",
+      "affected_examples_count": 4,
+      "percentage_of_eval_set": 2.0,
+      "example_id": "GOLDEN-012",
+      "customer_message": "Solicito recibos Septiembre y Octubre 2017, __email__ Pueden mandarlo automáticamente cada mes, gracias.",
+      "model_prediction": {
+        "predicted_intent": "general_feedback_inquiry",
+        "predicted_escalation": "ESCALATE TO HUMAN",
+        "confidence": 0.45
+      },
+      "expected_intent": "account_access_security",
+      "retrieval_evidence": {
+        "evidence_ids": [
+          "SPOT-18367",
+          "SPOT-16444",
+          "SPOT-31798"
+        ],
+        "best_similarity": 0.5587
+      },
+      "generated_reply": "Thank you for reaching out! To make sure this gets resolved accurately, I've escalated your request to a human support agent who will follow up with you directly.",
+      "escalation_decision": "ESCALATE TO HUMAN",
+      "why_it_failed": "Query 'GOLDEN-012' was classified as 'general_feedback_inquiry' instead of expected 'account_access_security'.",
+      "likely_root_cause": "Overlapping vocabulary terms across support intent categories. Rule weights for 'general_feedback_inquiry' outweighed 'account_access_security'.",
+      "fix_hypothesis": "Introduce negative keyword constraints and term-frequency normalization for 'general_feedback_inquiry' rules."
+    },
+    {
+      "failure_mode_name": "Intent Misclassification: Expected 'general_feedback_inquiry' vs Predicted 'offline_sync_issue'",
+      "category": "Intent Misclassification: Expected 'general_feedback_inquiry' vs Predicted 'offline_sync_issue'",
+      "affected_examples_count": 3,
+      "percentage_of_eval_set": 1.5,
+      "example_id": "GOLDEN-061",
+      "customer_message": "And how does one sync my tunes or is it automatic to my desktop version when I D/L them to my phone?",
+      "model_prediction": {
+        "predicted_intent": "offline_sync_issue",
+        "predicted_escalation": "AUTO-HANDLE",
+        "confidence": 0.79
+      },
+      "expected_intent": "general_feedback_inquiry",
+      "retrieval_evidence": {
+        "evidence_ids": [
+          "SPOT-26106",
+          "SPOT-08170",
+          "SPOT-27683"
+        ],
+        "best_similarity": 0.5333
+      },
+      "generated_reply": "Hey! We're afraid there's no similar option for the desktop app right now. The effects should go away when you listen to other tracks /NJ",
+      "escalation_decision": "AUTO-HANDLE",
+      "why_it_failed": "Query 'GOLDEN-061' was classified as 'offline_sync_issue' instead of expected 'general_feedback_inquiry'.",
+      "likely_root_cause": "Overlapping vocabulary terms across support intent categories. Rule weights for 'offline_sync_issue' outweighed 'general_feedback_inquiry'.",
+      "fix_hypothesis": "Introduce negative keyword constraints and term-frequency normalization for 'offline_sync_issue' rules."
+    },
+    {
+      "failure_mode_name": "Intent Misclassification: Expected 'billing_subscription_dispute' vs Predicted 'offline_sync_issue'",
+      "category": "Intent Misclassification: Expected 'billing_subscription_dispute' vs Predicted 'offline_sync_issue'",
+      "affected_examples_count": 2,
+      "percentage_of_eval_set": 1.0,
+      "example_id": "GOLDEN-042",
+      "customer_message": "It's finally working (the downloads) because I removed stuff from my SD card to internal storage. I don't know why it won't let me change the option to storing songs on internal storage which have more space than my SD card.",
+      "model_prediction": {
+        "predicted_intent": "offline_sync_issue",
+        "predicted_escalation": "AUTO-HANDLE",
+        "confidence": 0.85
+      },
+      "expected_intent": "billing_subscription_dispute",
+      "retrieval_evidence": {
+        "evidence_ids": [
+          "SPOT-15415",
+          "SPOT-30721",
+          "SPOT-18453"
+        ],
+        "best_similarity": 0.6805
+      },
+      "generated_reply": "Hey! Hey, help's here! Can you tell us what Android and Spotify versions you're using? We'll see what we can suggest /CH",
+      "escalation_decision": "AUTO-HANDLE",
+      "why_it_failed": "Query 'GOLDEN-042' was classified as 'offline_sync_issue' instead of expected 'billing_subscription_dispute'.",
+      "likely_root_cause": "Overlapping vocabulary terms across support intent categories. Rule weights for 'offline_sync_issue' outweighed 'billing_subscription_dispute'.",
+      "fix_hypothesis": "Introduce negative keyword constraints and term-frequency normalization for 'offline_sync_issue' rules."
+    }
+  ]
+}

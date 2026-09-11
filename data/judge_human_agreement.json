@@ -1,0 +1,9 @@
+{
+  "metadata": {
+    "total_human_template_examples": 30,
+    "human_rated_count": 0,
+    "has_genuine_human_ratings": false,
+    "status_message": "No genuine human ratings recorded yet (0/30 rated). Agreement metrics cannot be calculated without human ratings."
+  },
+  "agreement_metrics": null
+}

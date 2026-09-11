@@ -1,0 +1,131 @@
+{
+  "metadata": {
+    "golden_set_size": 200,
+    "clean_retrieval_corpus_size": 42440,
+    "annotation_method": "AI-assisted automatic annotation",
+    "baseline_training_method": "Weakly supervised training on non-golden historical corpus"
+  },
+  "trivial_baseline_metrics": {
+    "name": "Majority Class Baseline",
+    "majority_intent": "general_feedback_inquiry",
+    "accuracy": 0.29,
+    "macro_f1": 0.0749,
+    "weighted_f1": 0.1304
+  },
+  "weakly_supervised_ml_baseline_metrics": {
+    "name": "TF-IDF + Logistic Regression",
+    "accuracy": 0.85,
+    "macro_f1": 0.8286,
+    "weighted_f1": 0.848
+  },
+  "proposed_system_metrics": {
+    "name": "Proposed AI Support Agent System",
+    "accuracy": 0.88,
+    "macro_f1": 0.8625,
+    "weighted_f1": 0.8789
+  },
+  "escalation_metrics": {
+    "accuracy": 0.76,
+    "precision": 0.4051,
+    "recall": 0.9697,
+    "f1": 0.5714
+  },
+  "per_intent_metrics": {
+    "account_access_security": {
+      "precision": 0.8519,
+      "recall": 0.7931,
+      "f1": 0.8214,
+      "support": 29
+    },
+    "billing_subscription_dispute": {
+      "precision": 1.0,
+      "recall": 0.9211,
+      "f1": 0.9589,
+      "support": 38
+    },
+    "general_feedback_inquiry": {
+      "precision": 0.8333,
+      "recall": 0.9483,
+      "f1": 0.8871,
+      "support": 58
+    },
+    "offline_sync_issue": {
+      "precision": 0.7778,
+      "recall": 0.9545,
+      "f1": 0.8571,
+      "support": 22
+    },
+    "playback_audio_issue": {
+      "precision": 0.8571,
+      "recall": 0.6316,
+      "f1": 0.7273,
+      "support": 19
+    },
+    "playlist_library_management": {
+      "precision": 0.9677,
+      "recall": 0.8824,
+      "f1": 0.9231,
+      "support": 34
+    }
+  },
+  "confusion_matrix": {
+    "labels": [
+      "account_access_security",
+      "billing_subscription_dispute",
+      "general_feedback_inquiry",
+      "offline_sync_issue",
+      "playback_audio_issue",
+      "playlist_library_management"
+    ],
+    "matrix": [
+      [
+        23,
+        0,
+        4,
+        1,
+        1,
+        0
+      ],
+      [
+        1,
+        35,
+        0,
+        2,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        55,
+        3,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        21,
+        0,
+        1
+      ],
+      [
+        0,
+        0,
+        7,
+        0,
+        12,
+        0
+      ],
+      [
+        3,
+        0,
+        0,
+        0,
+        1,
+        30
+      ]
+    ]
+  }
+}

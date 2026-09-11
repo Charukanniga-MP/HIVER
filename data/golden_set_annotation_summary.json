@@ -1,0 +1,22 @@
+{
+  "total_examples": 200,
+  "annotation_method": "AI-assisted automatic annotation",
+  "intent_distribution": {
+    "account_access_security": 29,
+    "playback_audio_issue": 19,
+    "playlist_library_management": 34,
+    "offline_sync_issue": 22,
+    "general_feedback_inquiry": 58,
+    "billing_subscription_dispute": 38
+  },
+  "escalation_distribution": {
+    "AUTO-HANDLE": 167,
+    "ESCALATE TO HUMAN": 33
+  },
+  "difficulty_distribution": {
+    "Easy": 82,
+    "Medium": 115,
+    "Hard": 3
+  },
+  "out_of_scope_count": 0
+}

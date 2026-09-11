@@ -1,0 +1,51 @@
+{
+  "dataset": {
+    "original_corpus_size": 42678,
+    "clean_retrieval_corpus_size": 42440,
+    "golden_set_size": 200,
+    "annotation_methodology": "AI-assisted automatic annotation"
+  },
+  "leakage_statistics": {
+    "original_corpus_size": 42678,
+    "removed_by_exact_id": 216,
+    "removed_by_exact_text": 14,
+    "removed_by_near_duplicate": 8,
+    "similarity_threshold": 0.95,
+    "final_clean_retrieval_corpus_size": 42440
+  },
+  "models": {
+    "trivial_baseline": {
+      "name": "Majority Class (general_feedback_inquiry)",
+      "accuracy": 0.29,
+      "macro_f1": 0.0749
+    },
+    "weakly_supervised_ml_baseline": {
+      "name": "TF-IDF + Logistic Regression (42k train)",
+      "accuracy": 0.905,
+      "macro_f1": 0.8907
+    },
+    "proposed_system": {
+      "name": "Rule Classifier + Grounded Retrieval",
+      "accuracy": 0.905,
+      "macro_f1": 0.8935
+    }
+  },
+  "escalation_performance": {
+    "accuracy": 0.335,
+    "precision": 0.1951,
+    "recall": 0.9697,
+    "f1": 0.3249
+  },
+  "system_comparison": {
+    "both_agree_pct": 93.0,
+    "both_correct_count": 174,
+    "both_wrong_count": 12,
+    "predictions_differ_count": 14
+  },
+  "limitations": [
+    "AI-assisted golden labels are reference labels rather than human ground truth.",
+    "ML baseline and proposed classifier share weak taxonomy supervision rules.",
+    "Escalation precision is 19.51% due to conservative safety bias.",
+    "Evaluation dataset contains 33 true escalation cases."
+  ]
+}

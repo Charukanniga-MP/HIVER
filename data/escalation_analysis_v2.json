@@ -1,0 +1,43 @@
+{
+  "confusion_matrix": {
+    "TP": 32,
+    "TN": 35,
+    "FP": 132,
+    "FN": 1
+  },
+  "metrics": {
+    "accuracy": 0.335,
+    "precision": 0.1951,
+    "recall": 0.9697,
+    "f1": 0.3249
+  },
+  "false_positive_categories": {
+    "low_retrieval_similarity_threshold": 84,
+    "ambiguity_or_short_message": 28,
+    "billing_dispute_threshold": 20
+  },
+  "false_negative_inspection": [
+    {
+      "id": "GOLDEN-169",
+      "customer_text": "my account was charged twice!I only have one account yet I'm getting charged twice!",
+      "true_intent": "billing_subscription_dispute",
+      "predicted_intent": "billing_subscription_dispute",
+      "intent_correct": true,
+      "confidence": 0.72,
+      "retrieval_evidence": [
+        "SPOT-11573",
+        "SPOT-33225",
+        "SPOT-34752"
+      ],
+      "retrieval_score": 0.7723,
+      "generated_reply": "Hey! Hey Luke! We just replied to your DM with more info. Check it out, we'll continue helping you there /BH",
+      "true_escalation": "ESCALATE TO HUMAN",
+      "predicted_escalation": "AUTO-HANDLE",
+      "escalation_correct": false,
+      "escalation_reason": "High confidence (0.72) match for billing_subscription_dispute with strong grounded historical resolution (similarity 0.77).",
+      "is_out_of_scope": false,
+      "difficulty": "Medium"
+    }
+  ],
+  "tradeoff_explanation": "System prioritizes safety and recall (96.97%) over aggressive automation. 132 routine issues are over-escalated due to retrieval score <0.55 thresholds, ensuring only 1 high-risk case is missed."
+}

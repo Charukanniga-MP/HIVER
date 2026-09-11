@@ -1,0 +1,30 @@
+{
+  "total_examples": 200,
+  "suspicious_examples_count": 2,
+  "suspicious_items": [
+    {
+      "id": "GOLDEN-154",
+      "customer_text": "someone has hacked my account and replaced my albums with Mexican stuff...",
+      "assigned_intent": "playlist_library_management",
+      "expected_intent": "account_access_security",
+      "flags": [
+        "account_security_mismatch"
+      ],
+      "needs_review": true
+    },
+    {
+      "id": "GOLDEN-166",
+      "customer_text": "It looks like user Daan2112 hacked my account...",
+      "assigned_intent": "playlist_library_management",
+      "expected_intent": "account_access_security",
+      "flags": [
+        "account_security_mismatch"
+      ],
+      "needs_review": true
+    }
+  ],
+  "categories": [
+    "account_security_mismatch"
+  ],
+  "policy_note": "Labels preserved as originally assigned; flagged items marked with needs_review=true."
+}

@@ -1,0 +1,490 @@
+{
+  "metadata": {
+    "total_examples": 30,
+    "completed_count": 0,
+    "has_genuine_human_ratings": false,
+    "instructions": "Use 'python -m scripts.rate_judge_sample' to enter genuine human ratings (1-5 scale) for each response."
+  },
+  "examples": [
+    {
+      "id": "GOLDEN-002",
+      "customer_message": "how do I get my favourite podcasts added so I can use you for music and podcasts, I need my and !",
+      "generated_reply": "Thank you for reaching out! To make sure this gets resolved accurately, I've escalated your request to a human support agent who will follow up with you directly.",
+      "retrieved_evidence": [
+        "SPOT-36918",
+        "SPOT-14583",
+        "SPOT-14382"
+      ],
+      "human_relevance": null,
+      "human_groundedness": null,
+      "human_helpfulness": null,
+      "human_correctness": null,
+      "human_overall_score": null,
+      "human_notes": null
+    },
+    {
+      "id": "GOLDEN-006",
+      "customer_message": "hey there your premium family invite process is super frustrating. “Please match requested format” comes up. But the email is correct. No indication what is wrong. Help! Thx.",
+      "generated_reply": "We take account security very seriously. I've immediately flagged your request for our Account Security Team to help you regain secure access safely.",
+      "retrieved_evidence": [
+        "SPOT-39145",
+        "SPOT-40930",
+        "SPOT-28368"
+      ],
+      "human_relevance": null,
+      "human_groundedness": null,
+      "human_helpfulness": null,
+      "human_correctness": null,
+      "human_overall_score": null,
+      "human_notes": null
+    },
+    {
+      "id": "GOLDEN-008",
+      "customer_message": "ini akun saya kok kaya gini ya, ini gmna benerin nya? https://t.co/Q88dh9XYIJ",
+      "generated_reply": "Thank you for reaching out! To make sure this gets resolved accurately, I've escalated your request to a human support agent who will follow up with you directly.",
+      "retrieved_evidence": [
+        "SPOT-22432",
+        "SPOT-39105",
+        "SPOT-01394"
+      ],
+      "human_relevance": null,
+      "human_groundedness": null,
+      "human_helpfulness": null,
+      "human_correctness": null,
+      "human_overall_score": null,
+      "human_notes": null
+    },
+    {
+      "id": "GOLDEN-010",
+      "customer_message": "is so bad. , please build an Apple watch app asap.",
+      "generated_reply": "Hey! 1: Hey there! We don't have any info on this right now, but check out the official idea and...",
+      "retrieved_evidence": [
+        "SPOT-15100",
+        "SPOT-15097",
+        "SPOT-27039"
+      ],
+      "human_relevance": null,
+      "human_groundedness": null,
+      "human_helpfulness": null,
+      "human_correctness": null,
+      "human_overall_score": null,
+      "human_notes": null
+    },
+    {
+      "id": "GOLDEN-012",
+      "customer_message": "Solicito recibos Septiembre y Octubre 2017, __email__ Pueden mandarlo automáticamente cada mes, gracias.",
+      "generated_reply": "Thank you for reaching out! To make sure this gets resolved accurately, I've escalated your request to a human support agent who will follow up with you directly.",
+      "retrieved_evidence": [
+        "SPOT-18367",
+        "SPOT-16444",
+        "SPOT-31798"
+      ],
+      "human_relevance": null,
+      "human_groundedness": null,
+      "human_helpfulness": null,
+      "human_correctness": null,
+      "human_overall_score": null,
+      "human_notes": null
+    },
+    {
+      "id": "GOLDEN-015",
+      "customer_message": "How do I get to stop playing Everclear?",
+      "generated_reply": "Hey! Hey! It's not possible for now, but you can support the idea by adding your vote at https://t.co/hlXvRg5Zog /KL",
+      "retrieved_evidence": [
+        "SPOT-17713",
+        "SPOT-21770",
+        "SPOT-37439"
+      ],
+      "human_relevance": null,
+      "human_groundedness": null,
+      "human_helpfulness": null,
+      "human_correctness": null,
+      "human_overall_score": null,
+      "human_notes": null
+    },
+    {
+      "id": "GOLDEN-016",
+      "customer_message": "Had to completely reboot phone. It was after a password change. Got a pop up when I started the app, then after that the buttons wouldn’t work. Closed app and restarted, same. Then rebooted phone and it worked. Thanks for the follow up.",
+      "generated_reply": "We take account security very seriously. I've immediately flagged your request for our Account Security Team to help you regain secure access safely.",
+      "retrieved_evidence": [
+        "SPOT-20390",
+        "SPOT-20337",
+        "SPOT-18932"
+      ],
+      "human_relevance": null,
+      "human_groundedness": null,
+      "human_helpfulness": null,
+      "human_correctness": null,
+      "human_overall_score": null,
+      "human_notes": null
+    },
+    {
+      "id": "GOLDEN-023",
+      "customer_message": "kapan lagu red velvet yang #PerfectVelvet diliris di spotify indo",
+      "generated_reply": "Thank you for reaching out! To make sure this gets resolved accurately, I've escalated your request to a human support agent who will follow up with you directly.",
+      "retrieved_evidence": [
+        "SPOT-37245",
+        "SPOT-37250",
+        "SPOT-37600"
+      ],
+      "human_relevance": null,
+      "human_groundedness": null,
+      "human_helpfulness": null,
+      "human_correctness": null,
+      "human_overall_score": null,
+      "human_notes": null
+    },
+    {
+      "id": "GOLDEN-027",
+      "customer_message": "I am having difficulty logging into my account after I believe I was hacked. The account page is coming up blank.",
+      "generated_reply": "We take account security very seriously. I've immediately flagged your request for our Account Security Team to help you regain secure access safely.",
+      "retrieved_evidence": [
+        "SPOT-41944",
+        "SPOT-19012",
+        "SPOT-01407"
+      ],
+      "human_relevance": null,
+      "human_groundedness": null,
+      "human_helpfulness": null,
+      "human_correctness": null,
+      "human_overall_score": null,
+      "human_notes": null
+    },
+    {
+      "id": "GOLDEN-028",
+      "customer_message": "Damn it stop updating your iOS app without including iPhone X support",
+      "generated_reply": "Thank you for reaching out! To make sure this gets resolved accurately, I've escalated your request to a human support agent who will follow up with you directly.",
+      "retrieved_evidence": [
+        "SPOT-27767",
+        "SPOT-33965",
+        "SPOT-31973"
+      ],
+      "human_relevance": null,
+      "human_groundedness": null,
+      "human_helpfulness": null,
+      "human_correctness": null,
+      "human_overall_score": null,
+      "human_notes": null
+    },
+    {
+      "id": "GOLDEN-029",
+      "customer_message": "SPOTIFY WHEN IS THE LYRICS FUNCTION FOR DESKTOP COMING BACK ???!!!!??? I miss it :(",
+      "generated_reply": "Hey! Hey Maria! As you’re Premium, you can connect Spotify to Musixmatch to enjoy lyrics: https://t.co/scvbRH6MhL. Anything else, just shout /ND",
+      "retrieved_evidence": [
+        "SPOT-26257",
+        "SPOT-42284",
+        "SPOT-15384"
+      ],
+      "human_relevance": null,
+      "human_groundedness": null,
+      "human_helpfulness": null,
+      "human_correctness": null,
+      "human_overall_score": null,
+      "human_notes": null
+    },
+    {
+      "id": "GOLDEN-033",
+      "customer_message": "Skip Hiatt- __email__",
+      "generated_reply": "Thank you for reaching out! To make sure this gets resolved accurately, I've escalated your request to a human support agent who will follow up with you directly.",
+      "retrieved_evidence": [
+        "SPOT-10395",
+        "SPOT-27861",
+        "SPOT-05219"
+      ],
+      "human_relevance": null,
+      "human_groundedness": null,
+      "human_helpfulness": null,
+      "human_correctness": null,
+      "human_overall_score": null,
+      "human_notes": null
+    },
+    {
+      "id": "GOLDEN-039",
+      "customer_message": "Hi every time I want to share a song, Spotify goes black and stops the song - can't share but used to be able to, help? 💔",
+      "generated_reply": "Thank you for reaching out! To make sure this gets resolved accurately, I've escalated your request to a human support agent who will follow up with you directly.",
+      "retrieved_evidence": [
+        "SPOT-16537",
+        "SPOT-22971",
+        "SPOT-12177"
+      ],
+      "human_relevance": null,
+      "human_groundedness": null,
+      "human_helpfulness": null,
+      "human_correctness": null,
+      "human_overall_score": null,
+      "human_notes": null
+    },
+    {
+      "id": "GOLDEN-041",
+      "customer_message": "__email__",
+      "generated_reply": "Thank you for reaching out! To make sure this gets resolved accurately, I've escalated your request to a human support agent who will follow up with you directly.",
+      "retrieved_evidence": [
+        "SPOT-10395",
+        "SPOT-27861",
+        "SPOT-22127"
+      ],
+      "human_relevance": null,
+      "human_groundedness": null,
+      "human_helpfulness": null,
+      "human_correctness": null,
+      "human_overall_score": null,
+      "human_notes": null
+    },
+    {
+      "id": "GOLDEN-045",
+      "customer_message": "is there an option to say what artists I never want to hear from in playlists that you lovely folks organize?",
+      "generated_reply": "Hi there! Can you try restarting your app and checking for the latest Spotify update? If the issue persists, let us know and we will get a human specialist to take a closer look!",
+      "retrieved_evidence": [
+        "SPOT-01677",
+        "SPOT-22482",
+        "SPOT-39271"
+      ],
+      "human_relevance": null,
+      "human_groundedness": null,
+      "human_helpfulness": null,
+      "human_correctness": null,
+      "human_overall_score": null,
+      "human_notes": null
+    },
+    {
+      "id": "GOLDEN-048",
+      "customer_message": "I would rather hear literally any other ad--shame on you, you have no idea how playing these ads in excess can affect or trigger people",
+      "generated_reply": "Thank you for reaching out! To make sure this gets resolved accurately, I've escalated your request to a human support agent who will follow up with you directly.",
+      "retrieved_evidence": [
+        "SPOT-40086",
+        "SPOT-25930",
+        "SPOT-12130"
+      ],
+      "human_relevance": null,
+      "human_groundedness": null,
+      "human_helpfulness": null,
+      "human_correctness": null,
+      "human_overall_score": null,
+      "human_notes": null
+    },
+    {
+      "id": "GOLDEN-050",
+      "customer_message": "voted! will remain hopeful!!",
+      "generated_reply": "Hey! Awesome! Don't worry, we'll also let our developers know this is a feature you'd like to see in the future updates /PB",
+      "retrieved_evidence": [
+        "SPOT-26549",
+        "SPOT-31011",
+        "SPOT-03217"
+      ],
+      "human_relevance": null,
+      "human_groundedness": null,
+      "human_helpfulness": null,
+      "human_correctness": null,
+      "human_overall_score": null,
+      "human_notes": null
+    },
+    {
+      "id": "GOLDEN-052",
+      "customer_message": "today I had to reactivate my Spotify + Hulu student discount and when I try to activate it on Hulu I'm getting the error message \"We’re having trouble authorizing your account with Spotify. Please contact Spotify support to help resolve this issue.\"",
+      "generated_reply": "Hey! Hi there, that doesn't sound good. Can you DM us your account's email address? We'll take a look backstage /AK https://t.co/ldFdZRiNAt",
+      "retrieved_evidence": [
+        "SPOT-27496",
+        "SPOT-34870",
+        "SPOT-31924"
+      ],
+      "human_relevance": null,
+      "human_groundedness": null,
+      "human_helpfulness": null,
+      "human_correctness": null,
+      "human_overall_score": null,
+      "human_notes": null
+    },
+    {
+      "id": "GOLDEN-060",
+      "customer_message": "hey guys could you get #Hellveto split with galeón?",
+      "generated_reply": "Thank you for reaching out! To make sure this gets resolved accurately, I've escalated your request to a human support agent who will follow up with you directly.",
+      "retrieved_evidence": [
+        "SPOT-04165",
+        "SPOT-08318",
+        "SPOT-21686"
+      ],
+      "human_relevance": null,
+      "human_groundedness": null,
+      "human_helpfulness": null,
+      "human_correctness": null,
+      "human_overall_score": null,
+      "human_notes": null
+    },
+    {
+      "id": "GOLDEN-061",
+      "customer_message": "And how does one sync my tunes or is it automatic to my desktop version when I D/L them to my phone?",
+      "generated_reply": "Hey! We're afraid there's no similar option for the desktop app right now. The effects should go away when you listen to other tracks /NJ",
+      "retrieved_evidence": [
+        "SPOT-26106",
+        "SPOT-08170",
+        "SPOT-27683"
+      ],
+      "human_relevance": null,
+      "human_groundedness": null,
+      "human_helpfulness": null,
+      "human_correctness": null,
+      "human_overall_score": null,
+      "human_notes": null
+    },
+    {
+      "id": "GOLDEN-069",
+      "customer_message": "On me. It doesn't help if I turn off spotify app or leave it open, it freezes the whole computer, I can't move the mouse or do anything",
+      "generated_reply": "Thank you for reaching out! To make sure this gets resolved accurately, I've escalated your request to a human support agent who will follow up with you directly.",
+      "retrieved_evidence": [
+        "SPOT-26467",
+        "SPOT-11405",
+        "SPOT-38187"
+      ],
+      "human_relevance": null,
+      "human_groundedness": null,
+      "human_helpfulness": null,
+      "human_correctness": null,
+      "human_overall_score": null,
+      "human_notes": null
+    },
+    {
+      "id": "GOLDEN-073",
+      "customer_message": "I’m not buying a new TV every year just because you can’t be bothered. This is inexcusable for paying accounts.",
+      "generated_reply": "Thank you for reaching out! To make sure this gets resolved accurately, I've escalated your request to a human support agent who will follow up with you directly.",
+      "retrieved_evidence": [
+        "SPOT-09200",
+        "SPOT-09728",
+        "SPOT-13753"
+      ],
+      "human_relevance": null,
+      "human_groundedness": null,
+      "human_helpfulness": null,
+      "human_correctness": null,
+      "human_overall_score": null,
+      "human_notes": null
+    },
+    {
+      "id": "GOLDEN-079",
+      "customer_message": "bring your lyrics back.",
+      "generated_reply": "Hey! We hear you! Any updates will be posted at https://t.co/osebD49Qxe. We'd recommend voting to support the idea, too /JS",
+      "retrieved_evidence": [
+        "SPOT-13852",
+        "SPOT-32414",
+        "SPOT-37316"
+      ],
+      "human_relevance": null,
+      "human_groundedness": null,
+      "human_helpfulness": null,
+      "human_correctness": null,
+      "human_overall_score": null,
+      "human_notes": null
+    },
+    {
+      "id": "GOLDEN-095",
+      "customer_message": "Hey, why am I not able to access ‘View Album’ of songs I find on a playlist or on my daily mix?",
+      "generated_reply": "Hi there! Can you try restarting your app and checking for the latest Spotify update? If the issue persists, let us know and we will get a human specialist to take a closer look!",
+      "retrieved_evidence": [
+        "SPOT-14027",
+        "SPOT-13627",
+        "SPOT-30297"
+      ],
+      "human_relevance": null,
+      "human_groundedness": null,
+      "human_helpfulness": null,
+      "human_correctness": null,
+      "human_overall_score": null,
+      "human_notes": null
+    },
+    {
+      "id": "GOLDEN-121",
+      "customer_message": "I got an email to confirm my account and then another email a few hours later confirming my account has been set up but have never tried to set up an account.",
+      "generated_reply": "We take account security very seriously. I've immediately flagged your request for our Account Security Team to help you regain secure access safely.",
+      "retrieved_evidence": [
+        "SPOT-15863",
+        "SPOT-16355",
+        "SPOT-09590"
+      ],
+      "human_relevance": null,
+      "human_groundedness": null,
+      "human_helpfulness": null,
+      "human_correctness": null,
+      "human_overall_score": null,
+      "human_notes": null
+    },
+    {
+      "id": "GOLDEN-125",
+      "customer_message": "i want to cry????????",
+      "generated_reply": "Hey! Hey Chloe! We’d love to have all of their stuff available, but we have some info about content here: https://t.co/0i8GpimuDa /MX",
+      "retrieved_evidence": [
+        "SPOT-24750",
+        "SPOT-36756",
+        "SPOT-41527"
+      ],
+      "human_relevance": null,
+      "human_groundedness": null,
+      "human_helpfulness": null,
+      "human_correctness": null,
+      "human_overall_score": null,
+      "human_notes": null
+    },
+    {
+      "id": "GOLDEN-128",
+      "customer_message": "My account suddenly logged me out on all devices, won't let me reset my password and says account no longer exists... Any ideas on why this is?",
+      "generated_reply": "We take account security very seriously. I've immediately flagged your request for our Account Security Team to help you regain secure access safely.",
+      "retrieved_evidence": [
+        "SPOT-40070",
+        "SPOT-14704",
+        "SPOT-05896"
+      ],
+      "human_relevance": null,
+      "human_groundedness": null,
+      "human_helpfulness": null,
+      "human_correctness": null,
+      "human_overall_score": null,
+      "human_notes": null
+    },
+    {
+      "id": "GOLDEN-154",
+      "customer_message": "someone has hacked my account and replaced my albums with Mexican stuff I've never heard of. Help quickly please! I have 10 years of playlists on here https://t.co/IU49dI1CPO",
+      "generated_reply": "We take account security very seriously. I've immediately flagged your request for our Account Security Team to help you regain secure access safely.",
+      "retrieved_evidence": [
+        "SPOT-19012",
+        "SPOT-41944",
+        "SPOT-08506"
+      ],
+      "human_relevance": null,
+      "human_groundedness": null,
+      "human_helpfulness": null,
+      "human_correctness": null,
+      "human_overall_score": null,
+      "human_notes": null
+    },
+    {
+      "id": "GOLDEN-156",
+      "customer_message": "\"When you download to the additional device, the device with the earliest downloads will be automatically removed from the Offline devices list....\" Huh?? So your most cherished collection on your most used device??? #crazy",
+      "generated_reply": "Hi there! Can you try restarting your app and checking for the latest Spotify update? If the issue persists, let us know and we will get a human specialist to take a closer look!",
+      "retrieved_evidence": [
+        "SPOT-32451",
+        "SPOT-14791",
+        "SPOT-24766"
+      ],
+      "human_relevance": null,
+      "human_groundedness": null,
+      "human_helpfulness": null,
+      "human_correctness": null,
+      "human_overall_score": null,
+      "human_notes": null
+    },
+    {
+      "id": "GOLDEN-166",
+      "customer_message": "It looks like user Daan2112 hacked my account, added me as a follower, deleted my playlists and added their own. I've restored the playlists & changed the PW but giving you the heads-up.",
+      "generated_reply": "We take account security very seriously. I've immediately flagged your request for our Account Security Team to help you regain secure access safely.",
+      "retrieved_evidence": [
+        "SPOT-07299",
+        "SPOT-12126",
+        "SPOT-35863"
+      ],
+      "human_relevance": null,
+      "human_groundedness": null,
+      "human_helpfulness": null,
+      "human_correctness": null,
+      "human_overall_score": null,
+      "human_notes": null
+    }
+  ]
+}

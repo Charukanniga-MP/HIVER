@@ -1,0 +1,89 @@
+{
+  "metadata": {
+    "total_examples": 200,
+    "total_failures": 65,
+    "failure_rate": 32.5
+  },
+  "top_failure_modes": [
+    {
+      "category": "Escalation Over-Protection (False Positive Escalation)",
+      "count": 39,
+      "percentage": 19.5,
+      "representative_example": {
+        "id": "GOLDEN-002",
+        "customer_text": "how do I get my favourite podcasts added so I can use you for music and podcasts, I need my and !",
+        "predicted_intent": "general_feedback_inquiry",
+        "expected_intent": "general_feedback_inquiry",
+        "predicted_escalation": "ESCALATE TO HUMAN",
+        "expected_escalation": "AUTO-HANDLE",
+        "retrieval_similarity": 0.5397
+      },
+      "likely_cause": "Conservative safety threshold or low retrieval similarity (<0.38) triggering auto-escalation on routine ticket.",
+      "proposed_fix": "Improve retrieval index density for rare phrasing and tune minimum retrieval threshold."
+    },
+    {
+      "category": "Compound Error: Intent and Escalation Misclassified (playback_audio_issue)",
+      "count": 7,
+      "percentage": 3.5,
+      "representative_example": {
+        "id": "GOLDEN-023",
+        "customer_text": "kapan lagu red velvet yang #PerfectVelvet diliris di spotify indo",
+        "predicted_intent": "general_feedback_inquiry",
+        "expected_intent": "playback_audio_issue",
+        "predicted_escalation": "ESCALATE TO HUMAN",
+        "expected_escalation": "AUTO-HANDLE",
+        "retrieval_similarity": 0.5404
+      },
+      "likely_cause": "Overlapping vocabulary between 'playback_audio_issue' and 'general_feedback_inquiry'.",
+      "proposed_fix": "Add distinctive term weights and exclusion rules for general_feedback_inquiry."
+    },
+    {
+      "category": "Intent Misclassification: True 'account_access_security' vs Pred 'general_feedback_inquiry'",
+      "count": 4,
+      "percentage": 2.0,
+      "representative_example": {
+        "id": "GOLDEN-012",
+        "customer_text": "Solicito recibos Septiembre y Octubre 2017, __email__ Pueden mandarlo automáticamente cada mes, gracias.",
+        "predicted_intent": "general_feedback_inquiry",
+        "expected_intent": "account_access_security",
+        "predicted_escalation": "ESCALATE TO HUMAN",
+        "expected_escalation": "ESCALATE TO HUMAN",
+        "retrieval_similarity": 0.5587
+      },
+      "likely_cause": "Overlapping vocabulary between 'account_access_security' and 'general_feedback_inquiry'.",
+      "proposed_fix": "Add distinctive term weights and exclusion rules for general_feedback_inquiry."
+    },
+    {
+      "category": "Intent Misclassification: True 'general_feedback_inquiry' vs Pred 'offline_sync_issue'",
+      "count": 3,
+      "percentage": 1.5,
+      "representative_example": {
+        "id": "GOLDEN-061",
+        "customer_text": "And how does one sync my tunes or is it automatic to my desktop version when I D/L them to my phone?",
+        "predicted_intent": "offline_sync_issue",
+        "expected_intent": "general_feedback_inquiry",
+        "predicted_escalation": "AUTO-HANDLE",
+        "expected_escalation": "AUTO-HANDLE",
+        "retrieval_similarity": 0.5333
+      },
+      "likely_cause": "Overlapping vocabulary between 'general_feedback_inquiry' and 'offline_sync_issue'.",
+      "proposed_fix": "Add distinctive term weights and exclusion rules for offline_sync_issue."
+    },
+    {
+      "category": "Intent Misclassification: True 'billing_subscription_dispute' vs Pred 'offline_sync_issue'",
+      "count": 2,
+      "percentage": 1.0,
+      "representative_example": {
+        "id": "GOLDEN-042",
+        "customer_text": "It's finally working (the downloads) because I removed stuff from my SD card to internal storage. I don't know why it won't let me change the option to storing songs on internal storage which have more space than my SD card.",
+        "predicted_intent": "offline_sync_issue",
+        "expected_intent": "billing_subscription_dispute",
+        "predicted_escalation": "AUTO-HANDLE",
+        "expected_escalation": "AUTO-HANDLE",
+        "retrieval_similarity": 0.6805
+      },
+      "likely_cause": "Overlapping vocabulary between 'billing_subscription_dispute' and 'offline_sync_issue'.",
+      "proposed_fix": "Add distinctive term weights and exclusion rules for offline_sync_issue."
+    }
+  ]
+}

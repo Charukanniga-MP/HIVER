@@ -1,0 +1,133 @@
+{
+  "total_examples": 200,
+  "both_agree_count": 186,
+  "both_agree_pct": 93.0,
+  "both_correct_count": 174,
+  "both_wrong_count": 12,
+  "only_logreg_correct_count": 7,
+  "only_proposed_correct_count": 7,
+  "predictions_differ_count": 14,
+  "logreg_accuracy": 90.5,
+  "proposed_accuracy": 90.5,
+  "explanation": "Both models achieve 90.50% overall accuracy through symmetric trade-offs on 14 differing predictions (LogReg correct on 7 where Proposed failed; Proposed correct on 7 where LogReg failed).",
+  "confusion_matrix_logreg": {
+    "labels": [
+      "account_access_security",
+      "billing_subscription_dispute",
+      "general_feedback_inquiry",
+      "offline_sync_issue",
+      "playback_audio_issue",
+      "playlist_library_management"
+    ],
+    "matrix": [
+      [
+        26,
+        0,
+        1,
+        1,
+        1,
+        0
+      ],
+      [
+        0,
+        34,
+        1,
+        2,
+        0,
+        1
+      ],
+      [
+        0,
+        0,
+        57,
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        2,
+        18,
+        1,
+        1
+      ],
+      [
+        0,
+        0,
+        2,
+        0,
+        17,
+        0
+      ],
+      [
+        0,
+        0,
+        1,
+        0,
+        4,
+        29
+      ]
+    ]
+  },
+  "confusion_matrix_proposed": {
+    "labels": [
+      "account_access_security",
+      "billing_subscription_dispute",
+      "general_feedback_inquiry",
+      "offline_sync_issue",
+      "playback_audio_issue",
+      "playlist_library_management"
+    ],
+    "matrix": [
+      [
+        27,
+        0,
+        0,
+        1,
+        1,
+        0
+      ],
+      [
+        1,
+        33,
+        1,
+        2,
+        1,
+        0
+      ],
+      [
+        0,
+        0,
+        55,
+        3,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        1,
+        20,
+        0,
+        1
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        19,
+        0
+      ],
+      [
+        2,
+        0,
+        1,
+        0,
+        4,
+        27
+      ]
+    ]
+  }
+}

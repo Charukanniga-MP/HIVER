@@ -1,0 +1,17 @@
+{
+  "metadata": {
+    "total_judged_examples": 40,
+    "evaluator_type": "NonLLMFallbackJudge",
+    "real_llm_executed": false,
+    "status_message": "Real LLM judge could not be executed because working LLM provider/API credentials are unconfigured or rate-limited."
+  },
+  "response_quality_metrics": {
+    "mean_relevance": 5.0,
+    "mean_groundedness": 3.625,
+    "mean_helpfulness": 4.4,
+    "mean_correctness": 5.0,
+    "mean_overall_score": 4.4675,
+    "pct_groundedness_ge_4": 57.5,
+    "pct_correctness_ge_4": 100.0
+  }
+}

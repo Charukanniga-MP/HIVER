@@ -1,0 +1,8 @@
+{
+  "original_corpus_size": 42678,
+  "removed_by_exact_id": 216,
+  "removed_by_exact_text": 14,
+  "removed_by_near_duplicate": 8,
+  "similarity_threshold": 0.95,
+  "final_clean_retrieval_corpus_size": 42440
+}

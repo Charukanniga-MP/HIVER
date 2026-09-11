@@ -1,0 +1,810 @@
+{
+  "metadata": {
+    "sample_size": 40,
+    "real_llm_executed": false,
+    "status_message": "Real LLM judge could not be executed because working LLM provider/API credentials are unconfigured or rate-limited.",
+    "evaluator": "NonLLMFallbackJudge"
+  },
+  "results": [
+    {
+      "id": "GOLDEN-001",
+      "customer_text": "Does anyone know how to export spotify playlists. might have a free plan but the stupid ads which play sound while playing songs is stupid",
+      "generated_reply": "Hey! We're sorry you feel that way. Don't worry, we'll make sure your feedback is passed on to the right team /NS",
+      "evidence_ids": [
+        "SPOT-41030",
+        "SPOT-41475",
+        "SPOT-17350"
+      ],
+      "predicted_intent": "playback_audio_issue",
+      "predicted_escalation": "AUTO-HANDLE",
+      "relevance": 5,
+      "groundedness": 4,
+      "helpfulness": 5,
+      "correctness": 5,
+      "overall_score": 4.7,
+      "reasoning": "[Non-LLM Fallback Notice: Rule-based evaluation due to unconfigured/rate-limited LLM API] Best similarity: 0.57, Escalation: AUTO-HANDLE.",
+      "evidence_supported": true,
+      "evaluator_type": "non-LLM fallback"
+    },
+    {
+      "id": "GOLDEN-008",
+      "customer_text": "ini akun saya kok kaya gini ya, ini gmna benerin nya? https://t.co/Q88dh9XYIJ",
+      "generated_reply": "Thank you for reaching out! To make sure this gets resolved accurately, I've escalated your request to a human support agent who will follow up with you directly.",
+      "evidence_ids": [
+        "SPOT-22432",
+        "SPOT-39105",
+        "SPOT-01394"
+      ],
+      "predicted_intent": "general_feedback_inquiry",
+      "predicted_escalation": "ESCALATE TO HUMAN",
+      "relevance": 5,
+      "groundedness": 3,
+      "helpfulness": 4,
+      "correctness": 5,
+      "overall_score": 4.2,
+      "reasoning": "[Non-LLM Fallback Notice: Rule-based evaluation due to unconfigured/rate-limited LLM API] Best similarity: 0.46, Escalation: ESCALATE TO HUMAN.",
+      "evidence_supported": true,
+      "evaluator_type": "non-LLM fallback"
+    },
+    {
+      "id": "GOLDEN-011",
+      "customer_text": "I’m about 90% done with right now. I’m really feeling like a switch needs to happen.",
+      "generated_reply": "Thank you for reaching out! To make sure this gets resolved accurately, I've escalated your request to a human support agent who will follow up with you directly.",
+      "evidence_ids": [
+        "SPOT-24020",
+        "SPOT-39551",
+        "SPOT-28319"
+      ],
+      "predicted_intent": "general_feedback_inquiry",
+      "predicted_escalation": "ESCALATE TO HUMAN",
+      "relevance": 5,
+      "groundedness": 3,
+      "helpfulness": 4,
+      "correctness": 5,
+      "overall_score": 4.2,
+      "reasoning": "[Non-LLM Fallback Notice: Rule-based evaluation due to unconfigured/rate-limited LLM API] Best similarity: 0.40, Escalation: ESCALATE TO HUMAN.",
+      "evidence_supported": false,
+      "evaluator_type": "non-LLM fallback"
+    },
+    {
+      "id": "GOLDEN-016",
+      "customer_text": "Had to completely reboot phone. It was after a password change. Got a pop up when I started the app, then after that the buttons wouldn’t work. Closed app and restarted, same. Then rebooted phone and it worked. Thanks for the follow up.",
+      "generated_reply": "We take account security very seriously. I've immediately flagged your request for our Account Security Team to help you regain secure access safely.",
+      "evidence_ids": [
+        "SPOT-20390",
+        "SPOT-20337",
+        "SPOT-18932"
+      ],
+      "predicted_intent": "account_access_security",
+      "predicted_escalation": "ESCALATE TO HUMAN",
+      "relevance": 5,
+      "groundedness": 2,
+      "helpfulness": 4,
+      "correctness": 5,
+      "overall_score": 3.9,
+      "reasoning": "[Non-LLM Fallback Notice: Rule-based evaluation due to unconfigured/rate-limited LLM API] Best similarity: 0.36, Escalation: ESCALATE TO HUMAN.",
+      "evidence_supported": false,
+      "evaluator_type": "non-LLM fallback"
+    },
+    {
+      "id": "GOLDEN-023",
+      "customer_text": "kapan lagu red velvet yang #PerfectVelvet diliris di spotify indo",
+      "generated_reply": "Thank you for reaching out! To make sure this gets resolved accurately, I've escalated your request to a human support agent who will follow up with you directly.",
+      "evidence_ids": [
+        "SPOT-37245",
+        "SPOT-37250",
+        "SPOT-37600"
+      ],
+      "predicted_intent": "general_feedback_inquiry",
+      "predicted_escalation": "ESCALATE TO HUMAN",
+      "relevance": 5,
+      "groundedness": 4,
+      "helpfulness": 4,
+      "correctness": 5,
+      "overall_score": 4.5,
+      "reasoning": "[Non-LLM Fallback Notice: Rule-based evaluation due to unconfigured/rate-limited LLM API] Best similarity: 0.54, Escalation: ESCALATE TO HUMAN.",
+      "evidence_supported": true,
+      "evaluator_type": "non-LLM fallback"
+    },
+    {
+      "id": "GOLDEN-026",
+      "customer_text": "PURCHASED PREMIUM twice but then my spotify account is FREE 😡wasted money 🤦🏼‍♂️🤦🏼‍♂️🤦🏼‍♂️",
+      "generated_reply": "I apologize for the trouble with your billing. Because payment adjustments require secure account verification, I've escalated your ticket to our Billing Specialists to review your account safely.",
+      "evidence_ids": [
+        "SPOT-16270",
+        "SPOT-32312",
+        "SPOT-01935"
+      ],
+      "predicted_intent": "billing_subscription_dispute",
+      "predicted_escalation": "ESCALATE TO HUMAN",
+      "relevance": 5,
+      "groundedness": 3,
+      "helpfulness": 4,
+      "correctness": 5,
+      "overall_score": 4.2,
+      "reasoning": "[Non-LLM Fallback Notice: Rule-based evaluation due to unconfigured/rate-limited LLM API] Best similarity: 0.50, Escalation: ESCALATE TO HUMAN.",
+      "evidence_supported": true,
+      "evaluator_type": "non-LLM fallback"
+    },
+    {
+      "id": "GOLDEN-027",
+      "customer_text": "I am having difficulty logging into my account after I believe I was hacked. The account page is coming up blank.",
+      "generated_reply": "We take account security very seriously. I've immediately flagged your request for our Account Security Team to help you regain secure access safely.",
+      "evidence_ids": [
+        "SPOT-41944",
+        "SPOT-19012",
+        "SPOT-01407"
+      ],
+      "predicted_intent": "account_access_security",
+      "predicted_escalation": "ESCALATE TO HUMAN",
+      "relevance": 5,
+      "groundedness": 3,
+      "helpfulness": 4,
+      "correctness": 5,
+      "overall_score": 4.2,
+      "reasoning": "[Non-LLM Fallback Notice: Rule-based evaluation due to unconfigured/rate-limited LLM API] Best similarity: 0.46, Escalation: ESCALATE TO HUMAN.",
+      "evidence_supported": true,
+      "evaluator_type": "non-LLM fallback"
+    },
+    {
+      "id": "GOLDEN-028",
+      "customer_text": "Damn it stop updating your iOS app without including iPhone X support",
+      "generated_reply": "Thank you for reaching out! To make sure this gets resolved accurately, I've escalated your request to a human support agent who will follow up with you directly.",
+      "evidence_ids": [
+        "SPOT-27767",
+        "SPOT-33965",
+        "SPOT-31973"
+      ],
+      "predicted_intent": "general_feedback_inquiry",
+      "predicted_escalation": "ESCALATE TO HUMAN",
+      "relevance": 5,
+      "groundedness": 4,
+      "helpfulness": 4,
+      "correctness": 5,
+      "overall_score": 4.5,
+      "reasoning": "[Non-LLM Fallback Notice: Rule-based evaluation due to unconfigured/rate-limited LLM API] Best similarity: 0.55, Escalation: ESCALATE TO HUMAN.",
+      "evidence_supported": true,
+      "evaluator_type": "non-LLM fallback"
+    },
+    {
+      "id": "GOLDEN-032",
+      "customer_text": "Work e.g saving play lists",
+      "generated_reply": "Thank you for reaching out! To make sure this gets resolved accurately, I've escalated your request to a human support agent who will follow up with you directly.",
+      "evidence_ids": [
+        "SPOT-24000",
+        "SPOT-16015",
+        "SPOT-01994"
+      ],
+      "predicted_intent": "general_feedback_inquiry",
+      "predicted_escalation": "ESCALATE TO HUMAN",
+      "relevance": 5,
+      "groundedness": 4,
+      "helpfulness": 4,
+      "correctness": 5,
+      "overall_score": 4.5,
+      "reasoning": "[Non-LLM Fallback Notice: Rule-based evaluation due to unconfigured/rate-limited LLM API] Best similarity: 0.57, Escalation: ESCALATE TO HUMAN.",
+      "evidence_supported": true,
+      "evaluator_type": "non-LLM fallback"
+    },
+    {
+      "id": "GOLDEN-033",
+      "customer_text": "Skip Hiatt- __email__",
+      "generated_reply": "Thank you for reaching out! To make sure this gets resolved accurately, I've escalated your request to a human support agent who will follow up with you directly.",
+      "evidence_ids": [
+        "SPOT-10395",
+        "SPOT-27861",
+        "SPOT-05219"
+      ],
+      "predicted_intent": "playback_audio_issue",
+      "predicted_escalation": "ESCALATE TO HUMAN",
+      "relevance": 5,
+      "groundedness": 4,
+      "helpfulness": 4,
+      "correctness": 5,
+      "overall_score": 4.5,
+      "reasoning": "[Non-LLM Fallback Notice: Rule-based evaluation due to unconfigured/rate-limited LLM API] Best similarity: 0.63, Escalation: ESCALATE TO HUMAN.",
+      "evidence_supported": true,
+      "evaluator_type": "non-LLM fallback"
+    },
+    {
+      "id": "GOLDEN-034",
+      "customer_text": "My keeps on stop playing music every few songs, wth",
+      "generated_reply": "Hey! Hey there! Don't worry, help's here. What device, operating system, and Spotify version are you using? We'll see what we can suggest /MT",
+      "evidence_ids": [
+        "SPOT-32941",
+        "SPOT-30015",
+        "SPOT-23595"
+      ],
+      "predicted_intent": "playback_audio_issue",
+      "predicted_escalation": "AUTO-HANDLE",
+      "relevance": 5,
+      "groundedness": 4,
+      "helpfulness": 5,
+      "correctness": 5,
+      "overall_score": 4.7,
+      "reasoning": "[Non-LLM Fallback Notice: Rule-based evaluation due to unconfigured/rate-limited LLM API] Best similarity: 0.52, Escalation: AUTO-HANDLE.",
+      "evidence_supported": true,
+      "evaluator_type": "non-LLM fallback"
+    },
+    {
+      "id": "GOLDEN-037",
+      "customer_text": "so where’s next, subscription fail, this massive error is costing you customers https://t.co/TjCVJNZJRi",
+      "generated_reply": "I apologize for the trouble with your billing. Because payment adjustments require secure account verification, I've escalated your ticket to our Billing Specialists to review your account safely.",
+      "evidence_ids": [
+        "SPOT-04135",
+        "SPOT-01027",
+        "SPOT-07210"
+      ],
+      "predicted_intent": "billing_subscription_dispute",
+      "predicted_escalation": "ESCALATE TO HUMAN",
+      "relevance": 5,
+      "groundedness": 2,
+      "helpfulness": 4,
+      "correctness": 5,
+      "overall_score": 3.9,
+      "reasoning": "[Non-LLM Fallback Notice: Rule-based evaluation due to unconfigured/rate-limited LLM API] Best similarity: 0.33, Escalation: ESCALATE TO HUMAN.",
+      "evidence_supported": false,
+      "evaluator_type": "non-LLM fallback"
+    },
+    {
+      "id": "GOLDEN-039",
+      "customer_text": "Hi every time I want to share a song, Spotify goes black and stops the song - can't share but used to be able to, help? 💔",
+      "generated_reply": "Thank you for reaching out! To make sure this gets resolved accurately, I've escalated your request to a human support agent who will follow up with you directly.",
+      "evidence_ids": [
+        "SPOT-16537",
+        "SPOT-22971",
+        "SPOT-12177"
+      ],
+      "predicted_intent": "general_feedback_inquiry",
+      "predicted_escalation": "ESCALATE TO HUMAN",
+      "relevance": 5,
+      "groundedness": 3,
+      "helpfulness": 4,
+      "correctness": 5,
+      "overall_score": 4.2,
+      "reasoning": "[Non-LLM Fallback Notice: Rule-based evaluation due to unconfigured/rate-limited LLM API] Best similarity: 0.45, Escalation: ESCALATE TO HUMAN.",
+      "evidence_supported": true,
+      "evaluator_type": "non-LLM fallback"
+    },
+    {
+      "id": "GOLDEN-041",
+      "customer_text": "__email__",
+      "generated_reply": "Thank you for reaching out! To make sure this gets resolved accurately, I've escalated your request to a human support agent who will follow up with you directly.",
+      "evidence_ids": [
+        "SPOT-10395",
+        "SPOT-27861",
+        "SPOT-22127"
+      ],
+      "predicted_intent": "general_feedback_inquiry",
+      "predicted_escalation": "ESCALATE TO HUMAN",
+      "relevance": 5,
+      "groundedness": 5,
+      "helpfulness": 4,
+      "correctness": 5,
+      "overall_score": 4.8,
+      "reasoning": "[Non-LLM Fallback Notice: Rule-based evaluation due to unconfigured/rate-limited LLM API] Best similarity: 0.90, Escalation: ESCALATE TO HUMAN.",
+      "evidence_supported": true,
+      "evaluator_type": "non-LLM fallback"
+    },
+    {
+      "id": "GOLDEN-047",
+      "customer_text": "Not quite, looking for the version in Reservoir Dogs?",
+      "generated_reply": "Hey! This sounds like a great idea! Suggest it in our Community at https://t.co/rtDvYZOF32 and get support from other users /SU",
+      "evidence_ids": [
+        "SPOT-13341",
+        "SPOT-02678",
+        "SPOT-11378"
+      ],
+      "predicted_intent": "general_feedback_inquiry",
+      "predicted_escalation": "AUTO-HANDLE",
+      "relevance": 5,
+      "groundedness": 4,
+      "helpfulness": 5,
+      "correctness": 5,
+      "overall_score": 4.7,
+      "reasoning": "[Non-LLM Fallback Notice: Rule-based evaluation due to unconfigured/rate-limited LLM API] Best similarity: 0.68, Escalation: AUTO-HANDLE.",
+      "evidence_supported": true,
+      "evaluator_type": "non-LLM fallback"
+    },
+    {
+      "id": "GOLDEN-050",
+      "customer_text": "voted! will remain hopeful!!",
+      "generated_reply": "Hey! Awesome! Don't worry, we'll also let our developers know this is a feature you'd like to see in the future updates /PB",
+      "evidence_ids": [
+        "SPOT-26549",
+        "SPOT-31011",
+        "SPOT-03217"
+      ],
+      "predicted_intent": "general_feedback_inquiry",
+      "predicted_escalation": "AUTO-HANDLE",
+      "relevance": 5,
+      "groundedness": 4,
+      "helpfulness": 5,
+      "correctness": 5,
+      "overall_score": 4.7,
+      "reasoning": "[Non-LLM Fallback Notice: Rule-based evaluation due to unconfigured/rate-limited LLM API] Best similarity: 0.62, Escalation: AUTO-HANDLE.",
+      "evidence_supported": true,
+      "evaluator_type": "non-LLM fallback"
+    },
+    {
+      "id": "GOLDEN-058",
+      "customer_text": "help pls, I’ve tried incognito, different browsers and nothing seems to work",
+      "generated_reply": "Hey! Hey Clint, help's here! Can you let us know which browser you're using? We'll be right here waiting /KL",
+      "evidence_ids": [
+        "SPOT-09048",
+        "SPOT-24677",
+        "SPOT-27673"
+      ],
+      "predicted_intent": "general_feedback_inquiry",
+      "predicted_escalation": "AUTO-HANDLE",
+      "relevance": 5,
+      "groundedness": 4,
+      "helpfulness": 5,
+      "correctness": 5,
+      "overall_score": 4.7,
+      "reasoning": "[Non-LLM Fallback Notice: Rule-based evaluation due to unconfigured/rate-limited LLM API] Best similarity: 0.68, Escalation: AUTO-HANDLE.",
+      "evidence_supported": true,
+      "evaluator_type": "non-LLM fallback"
+    },
+    {
+      "id": "GOLDEN-059",
+      "customer_text": "some of my songs on my playlists (Spotify songs not local) are not playing at all since updating phones to the iPhone X any ideas? Don’t fancy individually deleting them and re adding all of them",
+      "generated_reply": "Hi there! Can you try restarting your app and checking for the latest Spotify update? If the issue persists, let us know and we will get a human specialist to take a closer look!",
+      "evidence_ids": [
+        "SPOT-36900",
+        "SPOT-29812",
+        "SPOT-00837"
+      ],
+      "predicted_intent": "playlist_library_management",
+      "predicted_escalation": "AUTO-HANDLE",
+      "relevance": 5,
+      "groundedness": 2,
+      "helpfulness": 4,
+      "correctness": 5,
+      "overall_score": 3.9,
+      "reasoning": "[Non-LLM Fallback Notice: Rule-based evaluation due to unconfigured/rate-limited LLM API] Best similarity: 0.29, Escalation: AUTO-HANDLE.",
+      "evidence_supported": false,
+      "evaluator_type": "non-LLM fallback"
+    },
+    {
+      "id": "GOLDEN-063",
+      "customer_text": "how do y’all delete a song from someone else’s playlist on spotify?",
+      "generated_reply": "Hey! Hi there, the cavalry's here! If you'd like to remove a track from your playlist, we'd recommend following the steps at https://t.co/a38Mc2DlCx. Hope this helps /AK",
+      "evidence_ids": [
+        "SPOT-40260",
+        "SPOT-14336",
+        "SPOT-38234"
+      ],
+      "predicted_intent": "playlist_library_management",
+      "predicted_escalation": "AUTO-HANDLE",
+      "relevance": 5,
+      "groundedness": 5,
+      "helpfulness": 5,
+      "correctness": 5,
+      "overall_score": 5.0,
+      "reasoning": "[Non-LLM Fallback Notice: Rule-based evaluation due to unconfigured/rate-limited LLM API] Best similarity: 0.79, Escalation: AUTO-HANDLE.",
+      "evidence_supported": true,
+      "evaluator_type": "non-LLM fallback"
+    },
+    {
+      "id": "GOLDEN-069",
+      "customer_text": "On me. It doesn't help if I turn off spotify app or leave it open, it freezes the whole computer, I can't move the mouse or do anything",
+      "generated_reply": "Thank you for reaching out! To make sure this gets resolved accurately, I've escalated your request to a human support agent who will follow up with you directly.",
+      "evidence_ids": [
+        "SPOT-26467",
+        "SPOT-11405",
+        "SPOT-38187"
+      ],
+      "predicted_intent": "general_feedback_inquiry",
+      "predicted_escalation": "ESCALATE TO HUMAN",
+      "relevance": 5,
+      "groundedness": 3,
+      "helpfulness": 4,
+      "correctness": 5,
+      "overall_score": 4.2,
+      "reasoning": "[Non-LLM Fallback Notice: Rule-based evaluation due to unconfigured/rate-limited LLM API] Best similarity: 0.41, Escalation: ESCALATE TO HUMAN.",
+      "evidence_supported": true,
+      "evaluator_type": "non-LLM fallback"
+    },
+    {
+      "id": "GOLDEN-075",
+      "customer_text": "Udah gak ada penawaran yang pake pulsa mas. Selain itu, dia hanya bisa IM3 dan 3.",
+      "generated_reply": "Thank you for reaching out! To make sure this gets resolved accurately, I've escalated your request to a human support agent who will follow up with you directly.",
+      "evidence_ids": [
+        "SPOT-33639",
+        "SPOT-04704",
+        "SPOT-09554"
+      ],
+      "predicted_intent": "general_feedback_inquiry",
+      "predicted_escalation": "ESCALATE TO HUMAN",
+      "relevance": 5,
+      "groundedness": 4,
+      "helpfulness": 4,
+      "correctness": 5,
+      "overall_score": 4.5,
+      "reasoning": "[Non-LLM Fallback Notice: Rule-based evaluation due to unconfigured/rate-limited LLM API] Best similarity: 0.55, Escalation: ESCALATE TO HUMAN.",
+      "evidence_supported": true,
+      "evaluator_type": "non-LLM fallback"
+    },
+    {
+      "id": "GOLDEN-079",
+      "customer_text": "bring your lyrics back.",
+      "generated_reply": "Hey! We hear you! Any updates will be posted at https://t.co/osebD49Qxe. We'd recommend voting to support the idea, too /JS",
+      "evidence_ids": [
+        "SPOT-13852",
+        "SPOT-32414",
+        "SPOT-37316"
+      ],
+      "predicted_intent": "general_feedback_inquiry",
+      "predicted_escalation": "AUTO-HANDLE",
+      "relevance": 5,
+      "groundedness": 5,
+      "helpfulness": 5,
+      "correctness": 5,
+      "overall_score": 5.0,
+      "reasoning": "[Non-LLM Fallback Notice: Rule-based evaluation due to unconfigured/rate-limited LLM API] Best similarity: 0.91, Escalation: AUTO-HANDLE.",
+      "evidence_supported": true,
+      "evaluator_type": "non-LLM fallback"
+    },
+    {
+      "id": "GOLDEN-086",
+      "customer_text": "I am trying to acquire the Spotify presale code for at ...",
+      "generated_reply": "Hey! Hey! We have info about pre-sale codes here: https://t.co/HUAHdMYImW. Let us know if you have any other questions /CX",
+      "evidence_ids": [
+        "SPOT-09321",
+        "SPOT-17581",
+        "SPOT-20801"
+      ],
+      "predicted_intent": "general_feedback_inquiry",
+      "predicted_escalation": "AUTO-HANDLE",
+      "relevance": 5,
+      "groundedness": 5,
+      "helpfulness": 5,
+      "correctness": 5,
+      "overall_score": 5.0,
+      "reasoning": "[Non-LLM Fallback Notice: Rule-based evaluation due to unconfigured/rate-limited LLM API] Best similarity: 0.74, Escalation: AUTO-HANDLE.",
+      "evidence_supported": true,
+      "evaluator_type": "non-LLM fallback"
+    },
+    {
+      "id": "GOLDEN-104",
+      "customer_text": "i NEED REPUTATION GIVE ME REPUTATION",
+      "generated_reply": "Hey! Taylor Swift's 'Reputation' isn't available to stream just yet – stay tuned! For now, check out the singles: https://t.co/3h0TnPWP0c /GK",
+      "evidence_ids": [
+        "SPOT-33334",
+        "SPOT-01387",
+        "SPOT-31349"
+      ],
+      "predicted_intent": "general_feedback_inquiry",
+      "predicted_escalation": "AUTO-HANDLE",
+      "relevance": 5,
+      "groundedness": 5,
+      "helpfulness": 5,
+      "correctness": 5,
+      "overall_score": 5.0,
+      "reasoning": "[Non-LLM Fallback Notice: Rule-based evaluation due to unconfigured/rate-limited LLM API] Best similarity: 0.95, Escalation: AUTO-HANDLE.",
+      "evidence_supported": true,
+      "evaluator_type": "non-LLM fallback"
+    },
+    {
+      "id": "GOLDEN-109",
+      "customer_text": "why do i need skips when i can listion to the songs?",
+      "generated_reply": "Hey! Hey Joel! Unlimited skips and on-demand listening is part of our Premium service. If you haven't had a subscription before, check this out: https://t.co/z7umnmiukQ. Let us know if you need anything else /CX",
+      "evidence_ids": [
+        "SPOT-00830",
+        "SPOT-31667",
+        "SPOT-41410"
+      ],
+      "predicted_intent": "general_feedback_inquiry",
+      "predicted_escalation": "AUTO-HANDLE",
+      "relevance": 5,
+      "groundedness": 5,
+      "helpfulness": 5,
+      "correctness": 5,
+      "overall_score": 5.0,
+      "reasoning": "[Non-LLM Fallback Notice: Rule-based evaluation due to unconfigured/rate-limited LLM API] Best similarity: 0.91, Escalation: AUTO-HANDLE.",
+      "evidence_supported": true,
+      "evaluator_type": "non-LLM fallback"
+    },
+    {
+      "id": "GOLDEN-125",
+      "customer_text": "i want to cry????????",
+      "generated_reply": "Hey! Hey Chloe! We’d love to have all of their stuff available, but we have some info about content here: https://t.co/0i8GpimuDa /MX",
+      "evidence_ids": [
+        "SPOT-24750",
+        "SPOT-36756",
+        "SPOT-41527"
+      ],
+      "predicted_intent": "general_feedback_inquiry",
+      "predicted_escalation": "AUTO-HANDLE",
+      "relevance": 5,
+      "groundedness": 4,
+      "helpfulness": 5,
+      "correctness": 5,
+      "overall_score": 4.7,
+      "reasoning": "[Non-LLM Fallback Notice: Rule-based evaluation due to unconfigured/rate-limited LLM API] Best similarity: 0.62, Escalation: AUTO-HANDLE.",
+      "evidence_supported": true,
+      "evaluator_type": "non-LLM fallback"
+    },
+    {
+      "id": "GOLDEN-143",
+      "customer_text": "Hey, I closed down my FB account and tried to use Spotify with my email but refuses... I think I broke it….",
+      "generated_reply": "We take account security very seriously. I've immediately flagged your request for our Account Security Team to help you regain secure access safely.",
+      "evidence_ids": [
+        "SPOT-12310",
+        "SPOT-32653",
+        "SPOT-24548"
+      ],
+      "predicted_intent": "account_access_security",
+      "predicted_escalation": "ESCALATE TO HUMAN",
+      "relevance": 5,
+      "groundedness": 2,
+      "helpfulness": 4,
+      "correctness": 5,
+      "overall_score": 3.9,
+      "reasoning": "[Non-LLM Fallback Notice: Rule-based evaluation due to unconfigured/rate-limited LLM API] Best similarity: 0.31, Escalation: ESCALATE TO HUMAN.",
+      "evidence_supported": false,
+      "evaluator_type": "non-LLM fallback"
+    },
+    {
+      "id": "GOLDEN-154",
+      "customer_text": "someone has hacked my account and replaced my albums with Mexican stuff I've never heard of. Help quickly please! I have 10 years of playlists on here https://t.co/IU49dI1CPO",
+      "generated_reply": "We take account security very seriously. I've immediately flagged your request for our Account Security Team to help you regain secure access safely.",
+      "evidence_ids": [
+        "SPOT-19012",
+        "SPOT-41944",
+        "SPOT-08506"
+      ],
+      "predicted_intent": "account_access_security",
+      "predicted_escalation": "ESCALATE TO HUMAN",
+      "relevance": 5,
+      "groundedness": 2,
+      "helpfulness": 4,
+      "correctness": 5,
+      "overall_score": 3.9,
+      "reasoning": "[Non-LLM Fallback Notice: Rule-based evaluation due to unconfigured/rate-limited LLM API] Best similarity: 0.38, Escalation: ESCALATE TO HUMAN.",
+      "evidence_supported": false,
+      "evaluator_type": "non-LLM fallback"
+    },
+    {
+      "id": "GOLDEN-157",
+      "customer_text": "I paid for 12 months premium 4 days ago and it was working perfectly until now. It has now completely stopped!",
+      "generated_reply": "I apologize for the trouble with your billing. Because payment adjustments require secure account verification, I've escalated your ticket to our Billing Specialists to review your account safely.",
+      "evidence_ids": [
+        "SPOT-22284",
+        "SPOT-13783",
+        "SPOT-24529"
+      ],
+      "predicted_intent": "billing_subscription_dispute",
+      "predicted_escalation": "ESCALATE TO HUMAN",
+      "relevance": 5,
+      "groundedness": 3,
+      "helpfulness": 4,
+      "correctness": 5,
+      "overall_score": 4.2,
+      "reasoning": "[Non-LLM Fallback Notice: Rule-based evaluation due to unconfigured/rate-limited LLM API] Best similarity: 0.42, Escalation: ESCALATE TO HUMAN.",
+      "evidence_supported": true,
+      "evaluator_type": "non-LLM fallback"
+    },
+    {
+      "id": "GOLDEN-158",
+      "customer_text": "Hi case closed, I already register used credit card,txs",
+      "generated_reply": "Hey! Got it! Our ideas section is reviewed often, even the closed ideas. If an idea has a lot of support, it may be implemented later /ND",
+      "evidence_ids": [
+        "SPOT-26264",
+        "SPOT-00393",
+        "SPOT-00027"
+      ],
+      "predicted_intent": "billing_subscription_dispute",
+      "predicted_escalation": "AUTO-HANDLE",
+      "relevance": 5,
+      "groundedness": 4,
+      "helpfulness": 5,
+      "correctness": 5,
+      "overall_score": 4.7,
+      "reasoning": "[Non-LLM Fallback Notice: Rule-based evaluation due to unconfigured/rate-limited LLM API] Best similarity: 0.67, Escalation: AUTO-HANDLE.",
+      "evidence_supported": true,
+      "evaluator_type": "non-LLM fallback"
+    },
+    {
+      "id": "GOLDEN-160",
+      "customer_text": "im really disappointed, ive had premium for about 4 months, i updated the app last night and all my downloads are gone?",
+      "generated_reply": "Hi there! Can you try restarting your app and checking for the latest Spotify update? If the issue persists, let us know and we will get a human specialist to take a closer look!",
+      "evidence_ids": [
+        "SPOT-04266",
+        "SPOT-37753",
+        "SPOT-27300"
+      ],
+      "predicted_intent": "offline_sync_issue",
+      "predicted_escalation": "AUTO-HANDLE",
+      "relevance": 5,
+      "groundedness": 3,
+      "helpfulness": 4,
+      "correctness": 5,
+      "overall_score": 4.2,
+      "reasoning": "[Non-LLM Fallback Notice: Rule-based evaluation due to unconfigured/rate-limited LLM API] Best similarity: 0.49, Escalation: AUTO-HANDLE.",
+      "evidence_supported": true,
+      "evaluator_type": "non-LLM fallback"
+    },
+    {
+      "id": "GOLDEN-164",
+      "customer_text": "Hi can't join my family account. I've that everytimes : Oups ! Une erreur s'est produite. Réessayez plus tard. (id: bisskuits)",
+      "generated_reply": "We take account security very seriously. I've immediately flagged your request for our Account Security Team to help you regain secure access safely.",
+      "evidence_ids": [
+        "SPOT-40304",
+        "SPOT-26564",
+        "SPOT-35165"
+      ],
+      "predicted_intent": "account_access_security",
+      "predicted_escalation": "ESCALATE TO HUMAN",
+      "relevance": 5,
+      "groundedness": 3,
+      "helpfulness": 4,
+      "correctness": 5,
+      "overall_score": 4.2,
+      "reasoning": "[Non-LLM Fallback Notice: Rule-based evaluation due to unconfigured/rate-limited LLM API] Best similarity: 0.46, Escalation: ESCALATE TO HUMAN.",
+      "evidence_supported": true,
+      "evaluator_type": "non-LLM fallback"
+    },
+    {
+      "id": "GOLDEN-166",
+      "customer_text": "It looks like user Daan2112 hacked my account, added me as a follower, deleted my playlists and added their own. I've restored the playlists & changed the PW but giving you the heads-up.",
+      "generated_reply": "We take account security very seriously. I've immediately flagged your request for our Account Security Team to help you regain secure access safely.",
+      "evidence_ids": [
+        "SPOT-07299",
+        "SPOT-12126",
+        "SPOT-35863"
+      ],
+      "predicted_intent": "account_access_security",
+      "predicted_escalation": "ESCALATE TO HUMAN",
+      "relevance": 5,
+      "groundedness": 3,
+      "helpfulness": 4,
+      "correctness": 5,
+      "overall_score": 4.2,
+      "reasoning": "[Non-LLM Fallback Notice: Rule-based evaluation due to unconfigured/rate-limited LLM API] Best similarity: 0.45, Escalation: ESCALATE TO HUMAN.",
+      "evidence_supported": true,
+      "evaluator_type": "non-LLM fallback"
+    },
+    {
+      "id": "GOLDEN-171",
+      "customer_text": "I find discriminatory that only college students have a 50% discount. Could it not be extended to high school students as well? Thank you!",
+      "generated_reply": "Hey! Hi! This isn't possible right now. Don't worry, we'll let the right folks know this is something you'd like to see /GK",
+      "evidence_ids": [
+        "SPOT-15761",
+        "SPOT-18035",
+        "SPOT-07670"
+      ],
+      "predicted_intent": "billing_subscription_dispute",
+      "predicted_escalation": "AUTO-HANDLE",
+      "relevance": 5,
+      "groundedness": 5,
+      "helpfulness": 5,
+      "correctness": 5,
+      "overall_score": 5.0,
+      "reasoning": "[Non-LLM Fallback Notice: Rule-based evaluation due to unconfigured/rate-limited LLM API] Best similarity: 0.77, Escalation: AUTO-HANDLE.",
+      "evidence_supported": true,
+      "evaluator_type": "non-LLM fallback"
+    },
+    {
+      "id": "GOLDEN-179",
+      "customer_text": "hi, I’m having a problem with my Spotify account, can’t see my downloaded songs anymore, I’ve sent you a DM.",
+      "generated_reply": "Hey! We've just sent you a bit more info over DM. We'll carry on helping out there 🙂 /CG",
+      "evidence_ids": [
+        "SPOT-00487",
+        "SPOT-41195",
+        "SPOT-25051"
+      ],
+      "predicted_intent": "offline_sync_issue",
+      "predicted_escalation": "AUTO-HANDLE",
+      "relevance": 5,
+      "groundedness": 4,
+      "helpfulness": 5,
+      "correctness": 5,
+      "overall_score": 4.7,
+      "reasoning": "[Non-LLM Fallback Notice: Rule-based evaluation due to unconfigured/rate-limited LLM API] Best similarity: 0.52, Escalation: AUTO-HANDLE.",
+      "evidence_supported": true,
+      "evaluator_type": "non-LLM fallback"
+    },
+    {
+      "id": "GOLDEN-183",
+      "customer_text": "Help! I can't login to my account. Says I can only use it abroad for 14 days... but I will be staying here for a year.",
+      "generated_reply": "We take account security very seriously. I've immediately flagged your request for our Account Security Team to help you regain secure access safely.",
+      "evidence_ids": [
+        "SPOT-22240",
+        "SPOT-34541",
+        "SPOT-39147"
+      ],
+      "predicted_intent": "account_access_security",
+      "predicted_escalation": "ESCALATE TO HUMAN",
+      "relevance": 5,
+      "groundedness": 4,
+      "helpfulness": 4,
+      "correctness": 5,
+      "overall_score": 4.5,
+      "reasoning": "[Non-LLM Fallback Notice: Rule-based evaluation due to unconfigured/rate-limited LLM API] Best similarity: 0.60, Escalation: ESCALATE TO HUMAN.",
+      "evidence_supported": true,
+      "evaluator_type": "non-LLM fallback"
+    },
+    {
+      "id": "GOLDEN-196",
+      "customer_text": "My God why wont you take my money?! You keep telling me my premium is about to expire but offer NO options in-app to update CC",
+      "generated_reply": "I apologize for the trouble with your billing. Because payment adjustments require secure account verification, I've escalated your ticket to our Billing Specialists to review your account safely.",
+      "evidence_ids": [
+        "SPOT-24388",
+        "SPOT-24387",
+        "SPOT-40664"
+      ],
+      "predicted_intent": "billing_subscription_dispute",
+      "predicted_escalation": "ESCALATE TO HUMAN",
+      "relevance": 5,
+      "groundedness": 2,
+      "helpfulness": 4,
+      "correctness": 5,
+      "overall_score": 3.9,
+      "reasoning": "[Non-LLM Fallback Notice: Rule-based evaluation due to unconfigured/rate-limited LLM API] Best similarity: 0.32, Escalation: ESCALATE TO HUMAN.",
+      "evidence_supported": false,
+      "evaluator_type": "non-LLM fallback"
+    },
+    {
+      "id": "GOLDEN-197",
+      "customer_text": "i was at a spotify talk only a couple weeks ago and they were encouraging people to do it, so you must be able to",
+      "generated_reply": "Hey! Thanks for letting us know. How much space do you have available on your device? /NS",
+      "evidence_ids": [
+        "SPOT-22024",
+        "SPOT-23012",
+        "SPOT-28798"
+      ],
+      "predicted_intent": "general_feedback_inquiry",
+      "predicted_escalation": "AUTO-HANDLE",
+      "relevance": 5,
+      "groundedness": 5,
+      "helpfulness": 5,
+      "correctness": 5,
+      "overall_score": 5.0,
+      "reasoning": "[Non-LLM Fallback Notice: Rule-based evaluation due to unconfigured/rate-limited LLM API] Best similarity: 0.83, Escalation: AUTO-HANDLE.",
+      "evidence_supported": true,
+      "evaluator_type": "non-LLM fallback"
+    },
+    {
+      "id": "GOLDEN-198",
+      "customer_text": "I KNEW ALL MY MAD PLAYLIST MAKING SKILLS WOULD COME IN HANDY SOME DAY https://t.co/eMbeDuHGsn",
+      "generated_reply": "Hey! Hey Kyle, help's here! Can you DM us your account's username or email address? We'll take a look backstage /JP",
+      "evidence_ids": [
+        "SPOT-20193",
+        "SPOT-42781",
+        "SPOT-04407"
+      ],
+      "predicted_intent": "playlist_library_management",
+      "predicted_escalation": "AUTO-HANDLE",
+      "relevance": 5,
+      "groundedness": 4,
+      "helpfulness": 5,
+      "correctness": 5,
+      "overall_score": 4.7,
+      "reasoning": "[Non-LLM Fallback Notice: Rule-based evaluation due to unconfigured/rate-limited LLM API] Best similarity: 0.53, Escalation: AUTO-HANDLE.",
+      "evidence_supported": true,
+      "evaluator_type": "non-LLM fallback"
+    },
+    {
+      "id": "GOLDEN-199",
+      "customer_text": "Okay. Found out they weren’t deleted but were moved to my other page. Why?",
+      "generated_reply": "Thank you for reaching out! To make sure this gets resolved accurately, I've escalated your request to a human support agent who will follow up with you directly.",
+      "evidence_ids": [
+        "SPOT-28577",
+        "SPOT-16763",
+        "SPOT-20381"
+      ],
+      "predicted_intent": "general_feedback_inquiry",
+      "predicted_escalation": "ESCALATE TO HUMAN",
+      "relevance": 5,
+      "groundedness": 3,
+      "helpfulness": 4,
+      "correctness": 5,
+      "overall_score": 4.2,
+      "reasoning": "[Non-LLM Fallback Notice: Rule-based evaluation due to unconfigured/rate-limited LLM API] Best similarity: 0.42, Escalation: ESCALATE TO HUMAN.",
+      "evidence_supported": true,
+      "evaluator_type": "non-LLM fallback"
+    }
+  ]
+}
