@@ -22,14 +22,15 @@ def run_evaluation_v2():
     print("STARTING EVALUATION V2 (Independent Golden Set Benchmark)")
     print("=" * 70)
 
-    # 1. Load Golden Evaluation Set v2
-    with open(GOLDEN_SET_V2_PATH, 'r', encoding='utf-8') as f:
+    # 1. Load Golden Evaluation Set (Human-reviewed if available, otherwise v2)
+    golden_set_path = r'd:\Hiver\data\golden_set_human_reviewed.json' if os.path.exists(r'd:\Hiver\data\golden_set_human_reviewed.json') else GOLDEN_SET_V2_PATH
+    with open(golden_set_path, 'r', encoding='utf-8') as f:
         golden_payload = json.load(f)
 
     golden_metadata = golden_payload.get('metadata', {})
     golden_examples = golden_payload.get('examples', [])
-    print(f"Loaded Golden Set v2 ({len(golden_examples)} items)")
-    print(f"Annotation Method: {golden_metadata.get('annotation_method')}")
+    print(f"Loaded Golden Set ({len(golden_examples)} items) from {golden_set_path}")
+    print(f"Annotation Method: {golden_metadata.get('labeling_method', golden_metadata.get('annotation_method'))}")
 
     # 2. Load Clean Retrieval Corpus for Baseline Training
     retriever = HistoricalRetriever(CLEAN_CORPUS_PATH)
@@ -49,8 +50,8 @@ def run_evaluation_v2():
 
     # 4. Prepare Evaluation Data (Independent N=200 Golden Set)
     X_eval = [ex['customer_text'] for ex in golden_examples]
-    y_intent_true = [ex['true_intent'] for ex in golden_examples]
-    y_esc_true = [ex['true_escalation'] for ex in golden_examples]
+    y_intent_true = [ex.get('human_intent') if ex.get('human_intent') is not None else ex.get('true_intent', ex.get('ai_assisted_intent')) for ex in golden_examples]
+    y_esc_true = [ex.get('human_escalation') if ex.get('human_escalation') is not None else ex.get('true_escalation', ex.get('ai_assisted_escalation')) for ex in golden_examples]
 
     # 5. Evaluate Proposed System (Consumes ONLY customer_text & tweet_id for leakage filter)
     print("\n[PHASE 3]: Evaluating Proposed System on Independent Golden Set...")
@@ -71,20 +72,23 @@ def run_evaluation_v2():
         proposed_intent_preds.append(pred_intent)
         proposed_esc_preds.append(esc_decision)
 
-        intent_correct = (pred_intent == ex['true_intent'])
-        esc_correct = (esc_decision == ex['true_escalation'])
+        true_intent_val = ex.get('human_intent') if ex.get('human_intent') is not None else ex.get('true_intent', ex.get('ai_assisted_intent'))
+        true_esc_val = ex.get('human_escalation') if ex.get('human_escalation') is not None else ex.get('true_escalation', ex.get('ai_assisted_escalation'))
+
+        intent_correct = (pred_intent == true_intent_val)
+        esc_correct = (esc_decision == true_esc_val)
 
         per_example_results.append({
             "id": ex['id'],
             "customer_text": c_text,
-            "true_intent": ex['true_intent'],
+            "true_intent": true_intent_val,
             "predicted_intent": pred_intent,
             "intent_correct": intent_correct,
             "confidence": conf,
             "retrieval_evidence": [e['evidence_id'] for e in evidence],
             "retrieval_score": evidence[0]['similarity_score'] if evidence else 0.0,
             "generated_reply": reply,
-            "true_escalation": ex['true_escalation'],
+            "true_escalation": true_esc_val,
             "predicted_escalation": esc_decision,
             "escalation_correct": esc_correct,
             "escalation_reason": reason,

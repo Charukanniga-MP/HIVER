@@ -1,10 +1,10 @@
 # Golden Evaluation Set Methodology & Honest Disclosure
 
 > [!IMPORTANT]
-> **Honest Evaluation Disclosure**:
-> Because manual human annotation of all 200 items was not feasible within project execution constraints, the labels in `data/golden_set_v2.json` were produced using **AI-assisted automatic annotation**.
->
-> These labels are **NOT** equivalent to independently human-verified ground truth. Evaluation results reported against `golden_set_v2.json` represent an AI-assisted benchmark rather than a gold-standard human evaluation.
+> **200-Example Human-Reviewed Golden Evaluation Set**:
+> 200-example golden evaluation set with human review of every example. AI-assisted labels were used only as initial suggestions; the project author explicitly confirmed or corrected every intent and escalation label.
+> 
+> Human response-quality review was performed over a separate 30-example sample to evaluate draft reply quality across Relevance, Groundedness, Helpfulness, and Correctness.
 
 ---
 

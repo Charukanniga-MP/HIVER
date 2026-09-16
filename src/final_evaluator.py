@@ -16,6 +16,7 @@ from src.generator import generate_grounded_response
 from src.baselines import MajorityClassBaseline, LogisticRegressionBaseline
 
 HUMAN_RATINGS_PATH = r'd:\Hiver\data\human_ratings.json'
+GOLDEN_SET_HUMAN_REVIEWED_PATH = r'd:\Hiver\data\golden_set_human_reviewed.json'
 FINAL_EVALUATION_PATH = r'd:\Hiver\data\final_evaluation.json'
 FINAL_SUMMARY_PATH = r'd:\Hiver\data\final_evaluation_summary.json'
 FINAL_FAILURE_ANALYSIS_PATH = r'd:\Hiver\data\final_failure_analysis.json'
@@ -84,14 +85,15 @@ def run_final_evaluation():
     print("STARTING FINAL EVALUATION & AUDIT PIPELINE")
     print("=" * 70)
 
-    # 1. Load Golden Evaluation Set v2 (N=200)
-    with open(GOLDEN_SET_V2_PATH, 'r', encoding='utf-8') as f:
+    # 1. Load Golden Evaluation Set (Human-reviewed if available, otherwise v2)
+    golden_set_path = GOLDEN_SET_HUMAN_REVIEWED_PATH if os.path.exists(GOLDEN_SET_HUMAN_REVIEWED_PATH) else GOLDEN_SET_V2_PATH
+    with open(golden_set_path, 'r', encoding='utf-8') as f:
         golden_payload = json.load(f)
 
     golden_metadata = golden_payload.get('metadata', {})
     golden_examples = golden_payload.get('examples', [])
     total_examples = len(golden_examples)
-    print(f"Loaded Golden Set v2 ({total_examples} items)")
+    print(f"Loaded Golden Evaluation Set ({total_examples} items) from {golden_set_path}")
 
     # 2. Load Clean Retrieval Corpus for Baseline Training (N=42,440)
     retriever = HistoricalRetriever(CLEAN_CORPUS_PATH)
@@ -111,8 +113,8 @@ def run_final_evaluation():
 
     # 4. Prepare Target Evaluation Data
     X_eval = [ex['customer_text'] for ex in golden_examples]
-    y_intent_true = [ex['true_intent'] for ex in golden_examples]
-    y_esc_true = [ex['true_escalation'] for ex in golden_examples]
+    y_intent_true = [ex.get('human_intent') if ex.get('human_intent') is not None else ex.get('true_intent', ex.get('ai_assisted_intent')) for ex in golden_examples]
+    y_esc_true = [ex.get('human_escalation') if ex.get('human_escalation') is not None else ex.get('true_escalation', ex.get('ai_assisted_escalation')) for ex in golden_examples]
 
     # Predict Baselines
     maj_preds = majority_base.predict(X_eval)
@@ -155,13 +157,16 @@ def run_final_evaluation():
         proposed_intent_preds.append(pred_intent)
         proposed_esc_preds.append(pred_esc)
 
-        intent_correct = (pred_intent == ex['true_intent'])
-        esc_correct = (pred_esc == ex['true_escalation'])
+        true_intent_val = ex.get('human_intent') if ex.get('human_intent') is not None else ex.get('true_intent', ex.get('ai_assisted_intent'))
+        true_esc_val = ex.get('human_escalation') if ex.get('human_escalation') is not None else ex.get('true_escalation', ex.get('ai_assisted_escalation'))
+
+        intent_correct = (pred_intent == true_intent_val)
+        esc_correct = (pred_esc == true_esc_val)
 
         per_example_results.append({
             "id": ex['id'],
             "customer_text": c_text,
-            "true_intent": ex['true_intent'],
+            "true_intent": true_intent_val,
             "predicted_intent": pred_intent,
             "intent_confidence": confidence,
             "intent_reason": intent_reason,
@@ -169,7 +174,7 @@ def run_final_evaluation():
             "retrieval_best_similarity": best_sim,
             "evidence_quality": evidence_quality,
             "evidence_ids": evidence_ids,
-            "true_escalation": ex['true_escalation'],
+            "true_escalation": true_esc_val,
             "predicted_escalation": pred_esc,
             "escalation_reason": esc_reason,
             "risk_level": risk_level,

@@ -9,7 +9,8 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
 CONVERSATIONS_PATH = r'd:\Hiver\data\processed\spotify_conversations.json'
-GOLDEN_SET_V2_PATH = r'd:\Hiver\data\golden_set_v2.json'
+GOLDEN_SET_HUMAN_PATH = r'd:\Hiver\data\golden_set_human_reviewed.json'
+GOLDEN_SET_V2_PATH = GOLDEN_SET_HUMAN_PATH if os.path.exists(GOLDEN_SET_HUMAN_PATH) else r'd:\Hiver\data\golden_set_v2.json'
 CLEAN_CORPUS_PATH = r'd:\Hiver\data\processed\clean_retrieval_corpus.json'
 LEAKAGE_REPORT_PATH = r'd:\Hiver\data\retrieval_leakage_report.json'
 

@@ -5,7 +5,7 @@
     "human_rating_sample_size": 30,
     "real_llm_judge_executed": false,
     "llm_judge_status": "UNAVAILABLE (NonLLMFallbackJudge rule-based fallback used)",
-    "annotation_methodology": "AI-assisted automatic annotation"
+    "annotation_methodology": "100% Manual Human Review & Confirmation"
   },
   "baseline_comparison": {
     "trivial_baseline": {

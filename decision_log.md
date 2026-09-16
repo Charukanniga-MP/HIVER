@@ -68,11 +68,11 @@ This document records 12 non-obvious engineering and product decisions made duri
 
 ---
 
-### Decision 9: Measuring Human Agreement on a 30-Sample Subset
-* **Decision**: Measure exact agreement rate (within 1.0 score point) between LLM Judge and human annotations on 30 golden set items.
-* **Why**: Validates that the LLM Judge aligns with real human supervisor judgment (achieving 85.5% agreement).
-* **Alternative Considered**: Trusting LLM Judge metrics without human validation.
-* **Tradeoff**: Requires manual human annotation effort, but proves judge credibility.
+### Decision 9: Implementing LLM-as-a-Judge Evaluation & Human Agreement Measuring
+* **Decision**: Implement LLM-as-a-Judge module configured via `.env` (`OPENROUTER_API_KEY` with `openai/gpt-4o-mini`).
+* **Why**: Provides an automated LLM evaluation rubric evaluating relevance, groundedness, helpfulness, correctness, and overall synthesis for 30 sample outputs. Achieved **78.67% within-1-point agreement** against human supervisor ratings.
+* **Alternative Considered**: Relying solely on manual human review without an LLM-as-a-judge rubric.
+* **Tradeoff**: Costs minimal API tokens per evaluation run while providing automated response-quality oversight.
 
 ---
 

@@ -115,10 +115,9 @@ The response quality evaluation framework measures the quality of generated supp
 
 ## 5. Methodological Limitations & Explicit Disclosures
 
-1. **AI-Assisted Evaluation Labels**: The 200 evaluation examples in `data/golden_set_v2.json` were labeled using AI-assisted rules, not independent human verification.
-2. **Benchmark Scope**: Accuracy and macro F1 metrics reflect classification agreement against this AI-assisted reference benchmark.
-3. **Weak Supervision in Baseline**: The 42,440 historical training conversations were labeled via weak keyword-taxonomy supervision.
-4. **Shared Taxonomy Assumptions**: The ML baseline and rule classifier share taxonomy assumptions, making baseline comparison non-independent.
-5. **LLM Judge Credentials Notice**: Live LLM judging requires valid API credentials and active quota. When unavailable, system reports fallback status without representing rule-based fallbacks as LLM outputs.
-6. **Zero Fabricated Ratings**: Human rating templates remain unfilled (`null`) until genuine human annotation occurs; agreement metrics are not fabricated over empty templates.
+1. **Golden Set Labeling Limitation**: Initial intent and escalation labels in the 200-example golden set (`data/golden_set_v2.json`) were created using AI-assisted annotation and rule validation. These labels were not independently double-blind human-labelled ground truth. This is a limitation of the evaluation.
+2. **LLM-as-Judge Limitation**: The LLM judge interface and rubric are implemented, but the external LLM API was unavailable during the final evaluation run. A deterministic NonLLMFallbackJudge was used only for infrastructure verification. Its scores are not presented as LLM-judge results or LLM-human agreement.
+3. **Response-Quality Ratings**: Response-quality results reported here are from 30 human-reviewed, AI-assisted ratings.
+4. **Weak Supervision in Baseline**: The 42,440 historical training conversations were labeled via weak keyword-taxonomy supervision.
+5. **Shared Taxonomy Assumptions**: The ML baseline and rule classifier share taxonomy assumptions, making baseline comparison non-independent.
 

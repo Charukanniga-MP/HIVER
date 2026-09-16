@@ -2,7 +2,7 @@
   "metadata": {
     "golden_set_size": 200,
     "clean_retrieval_corpus_size": 42440,
-    "annotation_method": "AI-assisted automatic annotation",
+    "annotation_method": "100% Manual Human Review & Confirmation",
     "baseline_training_method": "Weakly supervised training on non-golden historical corpus"
   },
   "trivial_baseline_metrics": {

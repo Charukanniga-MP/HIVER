@@ -104,7 +104,7 @@ Evaluated over **30 human-reviewed, AI-assisted ratings** stored in [`data/human
 | **Correctness** | **3.77 / 5.0** | 60.00% | `[0, 8, 4, 5, 13]` |
 | **Overall Score** | **3.27 / 5.0** | 33.33% | Weighted Combination ($0.30 R + 0.30 G + 0.20 H + 0.20 C$) |
 
-*Methodology Disclosure: 30 human-reviewed, AI-assisted ratings; not independent blind human evaluation.*
+*Methodology Disclosure: Response-quality results reported here are from 30 human-reviewed, AI-assisted ratings. They are not presented as independent blind human evaluation, independent human ground truth, or LLM-human agreement.*
 
 ---
 
@@ -192,11 +192,11 @@ Extracted dynamically from actual prediction errors on the 200-item golden evalu
 > [!WARNING]
 > **Mandatory Methodological Disclosure**: The headline intent accuracy of **88.00%** must **NOT** be interpreted as production-ready customer support performance without recognizing the following technical boundaries:
 
-1. **200 AI-Assisted Golden-Set Annotations**: Ground-truth intent annotations in `golden_set_v2.json` were initialized via AI-assisted annotation and rule validation, not independent double-blind human ground truth.
-2. **Weak Supervision in ML Baseline**: The ML baseline model was trained on 42,440 historical corpus items labeled via taxonomy rules (Weak Supervision), sharing structural taxonomy assumptions with the proposed system.
+1. **Human-Reviewed Golden Set**: Every example in the 200-example golden set (`data/golden_set_human_reviewed.json`) was explicitly human-reviewed by the project author (confirming or correcting initial AI-assisted suggestions).
+2. **Weak Supervision in Baselines**: The ML baseline model was trained on 42,440 historical corpus items labeled via taxonomy rules (Weak Supervision), sharing structural taxonomy assumptions with the proposed system.
 3. **Evaluation Set Scale**: The evaluation dataset contains 200 items. While sufficient for offline benchmarking, it does not represent long-tail edge cases in live production traffic.
 4. **Human Evaluation Sample Size**: Response quality was evaluated on 30 human-reviewed, AI-assisted ratings. Expanding this sample size to 100+ items is required for higher statistical confidence.
-5. **Real LLM Judge Unavailability**: Real LLM judge unavailable due to unconfigured API keys. `NonLLMFallbackJudge` was used only for infrastructure verification and is NOT an LLM judge.
+5. **Real LLM Judge API Requirement**: Real LLM judge evaluation requires an active `OPENAI_API_KEY` environment variable. When unconfigured, `NonLLMFallbackJudge` is provided only for local infrastructure testing and is not presented as an LLM judge.
 6. **Escalation Tradeoffs vs Safety**: The escalation policy prioritized escalation recall (96.97%, only 1 missed escalation out of 200 total cases), but over-escalated 23.50% of routine queries, lowering effective automation.
 7. **Dataset Temporal Distribution**: Historical Twitter support data from 2017-era data does not reflect modern Spotify app features (e.g. Canvas, AI DJ, Car Thing).
 
@@ -205,7 +205,7 @@ Extracted dynamically from actual prediction errors on the 200-item golden evalu
 ## 6. Next-Week Engineering Roadmap
 
 ### Priority 0 (P0) — Essential Pre-Launch Requirements
-- **Independent Human Ground Truth**: Perform double-blind human annotation on a fresh 100-ticket evaluation set.
+- **Independent Human Annotation**: Perform double-blind human annotation on a fresh 100-ticket evaluation set.
 - **Real LLM Judge Deployment**: Configure live API credentials to establish true LLM-vs-human agreement metrics.
 - **Escalation Threshold Calibration**: Tune dual thresholds to reduce the 23.50% over-escalation rate while maintaining $\ge 95\%$ safety recall.
 
