@@ -87,3 +87,110 @@ body {
   background: var(--border-color);
   border-radius: 3px;
 }
+
+/* Agent Avatar Glow & Animations */
+@keyframes pulseGlow {
+  0% {
+    box-shadow: 0 0 10px rgba(0, 229, 255, 0.4), 0 0 20px rgba(16, 185, 129, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(0, 229, 255, 0.8), 0 0 35px rgba(16, 185, 129, 0.5);
+  }
+  100% {
+    box-shadow: 0 0 10px rgba(0, 229, 255, 0.4), 0 0 20px rgba(16, 185, 129, 0.2);
+  }
+}
+
+@keyframes pulseDot {
+  0% { opacity: 0.4; transform: scale(0.9); }
+  50% { opacity: 1; transform: scale(1.1); }
+  100% { opacity: 0.4; transform: scale(0.9); }
+}
+
+.agent-avatar-frame {
+  position: relative;
+  border-radius: 50%;
+  padding: 3px;
+  background: linear-gradient(135deg, #00E5FF, #10B981, #1DB954);
+  animation: pulseGlow 3s infinite ease-in-out;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.agent-avatar-img {
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+}
+
+.online-dot {
+  width: 10px;
+  height: 10px;
+  background-color: #10B981;
+  border-radius: 50%;
+  display: inline-block;
+  box-shadow: 0 0 8px #10B981;
+  animation: pulseDot 1.8s infinite ease-in-out;
+}
+
+/* Pipeline Flowchart Visualizer Styles */
+@keyframes flowStreak {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.pipeline-flow-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  overflow-x: auto;
+  padding: 12px 4px;
+}
+
+.pipeline-node {
+  background: #111827;
+  border: 1px solid #233249;
+  border-radius: 8px;
+  padding: 14px 16px;
+  flex: 1;
+  min-width: 210px;
+  position: relative;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.pipeline-node:hover {
+  border-color: #00E5FF;
+  box-shadow: 0 0 15px rgba(0, 229, 255, 0.25);
+  transform: translateY(-2px);
+}
+
+.pipeline-node.active-node {
+  border-color: #00E5FF;
+  background: linear-gradient(145deg, #161F30 0%, #111827 100%);
+  box-shadow: 0 0 20px rgba(0, 229, 255, 0.35);
+}
+
+.pipeline-node.active-node-escaped {
+  border-color: #FF3B30;
+  box-shadow: 0 0 20px rgba(255, 59, 48, 0.35);
+}
+
+.pipeline-node.active-node-auto {
+  border-color: #10B981;
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.35);
+}
+
+.pipeline-connector {
+  height: 3px;
+  width: 32px;
+  flex-shrink: 0;
+  background: linear-gradient(90deg, #233249 0%, #00E5FF 50%, #233249 100%);
+  background-size: 200% 100%;
+  animation: flowStreak 2.5s infinite linear;
+  border-radius: 2px;
+}
+
+

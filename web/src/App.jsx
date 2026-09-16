@@ -7,6 +7,7 @@ export default function App() {
   const [customInput, setCustomInput] = useState('')
   const [isProcessing, setIsProcessing] = useState(false)
   const [serverError, setServerError] = useState(null)
+  const [activeNodeIndex, setActiveNodeIndex] = useState(null)
 
   const handleSelectPreset = (ticket) => {
     setSelectedTicket(ticket)
@@ -143,26 +144,44 @@ export default function App() {
         alignItems: 'center',
         justifyContent: 'space-between'
       }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
-          <div style={{
-            width: '36px',
-            height: '36px',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            flexShrink: 0
-          }}>
-            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path fill="#1DB954" d="M12 0C5.376 0 0 5.376 0 12s5.376 12 12 12 12-5.376 12-12S18.624 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.48.66.3 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.18-1.2-.18-1.38-.72-.18-.6.18-1.2.72-1.38 4.26-1.26 11.28-1.02 15.72 1.62.54.3.72 1.02.42 1.56-.3.42-1.02.6-1.56.3z"/>
-            </svg>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+            <div style={{
+              width: '36px',
+              height: '36px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              flexShrink: 0
+            }}>
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill="#1DB954" d="M12 0C5.376 0 0 5.376 0 12s5.376 12 12 12 12-5.376 12-12S18.624 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.48.66.3 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.18-1.2-.18-1.38-.72-.18-.6.18-1.2.72-1.38 4.26-1.26 11.28-1.02 15.72 1.62.54.3.72 1.02.42 1.56-.3.42-1.02.6-1.56.3z"/>
+              </svg>
+            </div>
+            
+            {/* Header AI Agent Avatar */}
+            <div className="agent-avatar-frame" style={{ width: '42px', height: '42px' }}>
+              <img 
+                src="/ai_agent_avatar.jpg" 
+                alt="SpotifyCares AI Support Agent" 
+                className="agent-avatar-img"
+                style={{ width: '36px', height: '36px' }}
+              />
+            </div>
           </div>
+
           <div>
             <h1 style={{ fontSize: '1.15rem', fontWeight: 700, letterSpacing: '-0.02em', color: '#F3F4F6' }}>
               SpotifyCares AI Customer Support Command Center
             </h1>
-            <p className="mono" style={{ fontSize: '0.75rem', color: '#00E5FF' }}>
-              BRAND: SpotifyCares | INFERENCE API: http://localhost:5000/api/predict
-            </p>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginTop: '2px' }}>
+              <span className="mono" style={{ fontSize: '0.75rem', color: '#00E5FF' }}>
+                BRAND: SpotifyCares | INFERENCE API: http://localhost:5000/api/predict
+              </span>
+              <span className="cyber-badge badge-emerald" style={{ padding: '2px 6px', fontSize: '0.65rem' }}>
+                <span className="online-dot" style={{ width: '6px', height: '6px' }}></span> AGENT: AURORA-v3 ACTIVE
+              </span>
+            </div>
           </div>
         </div>
 
@@ -202,6 +221,56 @@ export default function App() {
         {activeTab === 'command' && (
           <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
             
+            {/* AI Agent Status Hero Banner */}
+            <div className="cyber-card" style={{
+              background: 'linear-gradient(135deg, #161F30 0%, #111827 100%)',
+              border: '1px solid #00E5FF33',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              padding: '18px 24px',
+              gap: '24px'
+            }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
+                <div className="agent-avatar-frame" style={{ width: '74px', height: '74px', flexShrink: 0 }}>
+                  <img 
+                    src="/ai_agent_avatar.jpg" 
+                    alt="AURORA AI Agent Avatar" 
+                    className="agent-avatar-img"
+                    style={{ width: '68px', height: '68px' }}
+                  />
+                </div>
+                <div>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                    <h2 style={{ fontSize: '1.25rem', fontWeight: 700, color: '#F3F4F6' }}>
+                      AURORA-v3 Support Agent
+                    </h2>
+                    <span className="cyber-badge badge-emerald">
+                      <span className="online-dot"></span> SYSTEM ONLINE
+                    </span>
+                  </div>
+                  <p style={{ fontSize: '0.85rem', color: '#9CA3AF', marginTop: '4px' }}>
+                    Autonomous SpotifyCares Triage, Intent Classification & Risk-Calibrated Escalation Engine
+                  </p>
+                </div>
+              </div>
+
+              <div style={{ display: 'flex', gap: '20px' }}>
+                <div style={{ background: '#0B0F19', padding: '10px 16px', borderRadius: '6px', border: '1px solid #233249', textAlign: 'center' }}>
+                  <span className="mono" style={{ fontSize: '0.7rem', color: '#9CA3AF' }}>HISTORICAL CORPUS</span>
+                  <div className="mono" style={{ fontSize: '1.1rem', fontWeight: 700, color: '#00E5FF' }}>42,440 Cases</div>
+                </div>
+                <div style={{ background: '#0B0F19', padding: '10px 16px', borderRadius: '6px', border: '1px solid #233249', textAlign: 'center' }}>
+                  <span className="mono" style={{ fontSize: '0.7rem', color: '#9CA3AF' }}>INTENT ACCURACY</span>
+                  <div className="mono" style={{ fontSize: '1.1rem', fontWeight: 700, color: '#10B981' }}>88.00%</div>
+                </div>
+                <div style={{ background: '#0B0F19', padding: '10px 16px', borderRadius: '6px', border: '1px solid #233249', textAlign: 'center' }}>
+                  <span className="mono" style={{ fontSize: '0.7rem', color: '#9CA3AF' }}>SAFETY RECALL</span>
+                  <div className="mono" style={{ fontSize: '1.1rem', fontWeight: 700, color: '#00E5FF' }}>96.97%</div>
+                </div>
+              </div>
+            </div>
+
             {/* Quick Ticket Selector Bar */}
             <div className="cyber-card" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '16px' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '12px', flex: 1, overflowX: 'auto' }}>
@@ -264,6 +333,173 @@ export default function App() {
                   {isProcessing ? 'Running Pipeline...' : 'Run Agent'}
                 </button>
               </div>
+            </div>
+
+            {/* Live Pipeline Flowchart & Execution Visualizer */}
+            <div className="cyber-card" style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                  <span className="mono" style={{ fontSize: '0.8rem', color: '#00E5FF', fontWeight: 700 }}>
+                    ⚡ LIVE AGENT PIPELINE FLOWCHART & EXECUTION VISUALIZER
+                  </span>
+                  <span className="cyber-badge badge-cyan" style={{ fontSize: '0.65rem' }}>
+                    5-STAGE REAL-TIME PIPELINE
+                  </span>
+                </div>
+                <span className="mono" style={{ fontSize: '0.75rem', color: '#9CA3AF' }}>
+                  Click any node to inspect raw stage telemetry
+                </span>
+              </div>
+
+              <div className="pipeline-flow-container">
+                {/* Node 1: Sanitization */}
+                <div 
+                  className={`pipeline-node ${activeNodeIndex === 1 ? 'active-node' : ''}`}
+                  onClick={() => setActiveNodeIndex(activeNodeIndex === 1 ? null : 1)}
+                >
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '6px' }}>
+                    <span className="mono" style={{ fontSize: '0.65rem', color: '#9CA3AF' }}>STAGE 01</span>
+                    <span className="cyber-badge badge-emerald" style={{ fontSize: '0.6rem', padding: '1px 5px' }}>CLEANED</span>
+                  </div>
+                  <h4 style={{ fontSize: '0.85rem', fontWeight: 700, color: '#F3F4F6' }}>1. PII Sanitizer</h4>
+                  <p style={{ fontSize: '0.75rem', color: '#9CA3AF', marginTop: '4px', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                    Stripped handles & PII
+                  </p>
+                </div>
+
+                <div className="pipeline-connector"></div>
+
+                {/* Node 2: Intent Classification */}
+                <div 
+                  className={`pipeline-node ${activeNodeIndex === 2 ? 'active-node' : ''}`}
+                  onClick={() => setActiveNodeIndex(activeNodeIndex === 2 ? null : 2)}
+                >
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '6px' }}>
+                    <span className="mono" style={{ fontSize: '0.65rem', color: '#9CA3AF' }}>STAGE 02</span>
+                    <span className="cyber-badge badge-cyan" style={{ fontSize: '0.6rem', padding: '1px 5px' }}>
+                      {((selectedTicket.confidence || 0) * 100).toFixed(0)}% CONF
+                    </span>
+                  </div>
+                  <h4 style={{ fontSize: '0.85rem', fontWeight: 700, color: '#F3F4F6' }}>2. Signal Classifier</h4>
+                  <p style={{ fontSize: '0.75rem', color: '#00E5FF', marginTop: '4px', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                    {selectedTicket.true_intent}
+                  </p>
+                </div>
+
+                <div className="pipeline-connector"></div>
+
+                {/* Node 3: Historical Retrieval */}
+                <div 
+                  className={`pipeline-node ${activeNodeIndex === 3 ? 'active-node' : ''}`}
+                  onClick={() => setActiveNodeIndex(activeNodeIndex === 3 ? null : 3)}
+                >
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '6px' }}>
+                    <span className="mono" style={{ fontSize: '0.65rem', color: '#9CA3AF' }}>STAGE 03</span>
+                    <span className="cyber-badge badge-cyan" style={{ fontSize: '0.6rem', padding: '1px 5px' }}>
+                      {((selectedTicket.similarity_score || 0) * 100).toFixed(1)}% MATCH
+                    </span>
+                  </div>
+                  <h4 style={{ fontSize: '0.85rem', fontWeight: 700, color: '#F3F4F6' }}>3. TF-IDF Search</h4>
+                  <p style={{ fontSize: '0.75rem', color: '#9CA3AF', marginTop: '4px', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                    {selectedTicket.evidence_id} (42.4k index)
+                  </p>
+                </div>
+
+                <div className="pipeline-connector"></div>
+
+                {/* Node 4: Risk Escalation Policy */}
+                <div 
+                  className={`pipeline-node ${
+                    activeNodeIndex === 4 
+                      ? (selectedTicket.escalation === 'AUTO-HANDLE' ? 'active-node-auto' : 'active-node-escaped')
+                      : ''
+                  }`}
+                  onClick={() => setActiveNodeIndex(activeNodeIndex === 4 ? null : 4)}
+                >
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '6px' }}>
+                    <span className="mono" style={{ fontSize: '0.65rem', color: '#9CA3AF' }}>STAGE 04</span>
+                    <span className={`cyber-badge ${selectedTicket.escalation === 'AUTO-HANDLE' ? 'badge-emerald' : 'badge-crimson'}`} style={{ fontSize: '0.6rem', padding: '1px 5px' }}>
+                      {selectedTicket.escalation === 'AUTO-HANDLE' ? 'AUTO' : 'HUMAN'}
+                    </span>
+                  </div>
+                  <h4 style={{ fontSize: '0.85rem', fontWeight: 700, color: selectedTicket.escalation === 'AUTO-HANDLE' ? '#10B981' : '#FF3B30' }}>
+                    4. Risk Policy Engine
+                  </h4>
+                  <p style={{ fontSize: '0.75rem', color: '#9CA3AF', marginTop: '4px', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                    {selectedTicket.escalation}
+                  </p>
+                </div>
+
+                <div className="pipeline-connector"></div>
+
+                {/* Node 5: Grounded Response */}
+                <div 
+                  className={`pipeline-node ${activeNodeIndex === 5 ? 'active-node' : ''}`}
+                  onClick={() => setActiveNodeIndex(activeNodeIndex === 5 ? null : 5)}
+                >
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '6px' }}>
+                    <span className="mono" style={{ fontSize: '0.65rem', color: '#9CA3AF' }}>STAGE 05</span>
+                    <span className={`cyber-badge ${selectedTicket.grounded ? 'badge-emerald' : 'badge-crimson'}`} style={{ fontSize: '0.6rem', padding: '1px 5px' }}>
+                      {selectedTicket.grounded ? 'GROUNDED' : 'SAFETY ACK'}
+                    </span>
+                  </div>
+                  <h4 style={{ fontSize: '0.85rem', fontWeight: 700, color: '#F3F4F6' }}>5. Grounded Draft</h4>
+                  <p style={{ fontSize: '0.75rem', color: '#9CA3AF', marginTop: '4px', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                    Synthesized Draft
+                  </p>
+                </div>
+              </div>
+
+              {/* Active Node Deep Telemetry Drawer */}
+              {activeNodeIndex && (
+                <div style={{
+                  background: '#0B0F19',
+                  border: '1px solid #00E5FF66',
+                  borderRadius: '6px',
+                  padding: '14px 18px',
+                  marginTop: '4px',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: '8px'
+                }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                    <span className="mono" style={{ fontSize: '0.75rem', color: '#00E5FF', fontWeight: 700 }}>
+                      [TELEMETRY INSPECTOR - PIPELINE STAGE 0{activeNodeIndex}]
+                    </span>
+                    <button 
+                      onClick={() => setActiveNodeIndex(null)}
+                      style={{ background: 'transparent', border: 'none', color: '#9CA3AF', cursor: 'pointer', fontSize: '0.8rem' }}
+                    >
+                      ✕ Close
+                    </button>
+                  </div>
+                  {activeNodeIndex === 1 && (
+                    <p style={{ fontSize: '0.85rem', color: '#D1D5DB' }}>
+                      <strong>Input Sanitization:</strong> Stripped PII, customer handles, and URLs to ensure safety. Raw text: <code style={{ color: '#00E5FF' }}>"{selectedTicket.customer_text}"</code>
+                    </p>
+                  )}
+                  {activeNodeIndex === 2 && (
+                    <p style={{ fontSize: '0.85rem', color: '#D1D5DB' }}>
+                      <strong>Intent Signal Classifier:</strong> Multi-layer rule & regex engine classified query as <code style={{ color: '#00E5FF' }}>{selectedTicket.true_intent}</code> with confidence <code style={{ color: '#10B981' }}>{((selectedTicket.confidence || 0) * 100).toFixed(0)}%</code>.
+                    </p>
+                  )}
+                  {activeNodeIndex === 3 && (
+                    <p style={{ fontSize: '0.85rem', color: '#D1D5DB' }}>
+                      <strong>Leak-Free TF-IDF Search:</strong> Searched 42,440 clean non-golden historical support resolutions. Matched Case <code style={{ color: '#00E5FF' }}>{selectedTicket.evidence_id}</code> with <code style={{ color: '#10B981' }}>{((selectedTicket.similarity_score || 0) * 100).toFixed(1)}%</code> cosine similarity.
+                    </p>
+                  )}
+                  {activeNodeIndex === 4 && (
+                    <p style={{ fontSize: '0.85rem', color: '#D1D5DB' }}>
+                      <strong>Risk Escalation Policy:</strong> Evaluated intent security risk & evidence similarity thresholds ($0.55$). Decision: <code style={{ color: selectedTicket.escalation === 'AUTO-HANDLE' ? '#10B981' : '#FF3B30' }}>{selectedTicket.escalation}</code>. Reason: <em>"{selectedTicket.why}"</em>
+                    </p>
+                  )}
+                  {activeNodeIndex === 5 && (
+                    <p style={{ fontSize: '0.85rem', color: '#D1D5DB' }}>
+                      <strong>Grounded Draft Generator:</strong> Synthesized grounded response using retrieved resolution grounding. Draft Reply: <span style={{ fontStyle: 'italic', color: '#F3F4F6' }}>"{selectedTicket.draft_reply}"</span>
+                    </p>
+                  )}
+                </div>
+              )}
             </div>
 
             {serverError && (
